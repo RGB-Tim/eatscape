@@ -18,10 +18,13 @@ $(document).ready(function () {
       if (hasil.length > 0) {
         hasil.forEach((makanan) => {
           const card = `
-            <div class="card mb-3">
+            <div class="card mb-3 max-h-64 border-dashed overflow-hidden border-2 grid grid-cols-2 gap-2">
               <div class="card-body">
-                <h5 class="">${makanan.nama}</h5>
                 <img src="${makanan.gambar}" class="card-img" alt="...">
+              </div>
+              <div class="card-body">
+              <p class="card-text">${makanan.kategori}</p>
+                <h5 class="text-2xl">${makanan.nama}</h5>
                 <p class="card-text">${makanan.deskripsi}</p>
                 <a href="informasi.html?nama=${encodeURIComponent(
                   makanan.nama
@@ -33,7 +36,7 @@ $(document).ready(function () {
         });
       } else {
         $searchResults.html(
-          '<p class="text-muted">Makanan tidak ditemukan.</p>'
+          '¯\_(ツ)_/¯<p class="text-muted">Makanan tidak ditemukan.</p>'
         );
       }
     });
