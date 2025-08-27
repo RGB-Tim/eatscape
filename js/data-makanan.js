@@ -107,6 +107,7 @@ const dataMakanan = [
     vitamin: "A, C, D"
   },
 
+  
   //makanan kemasan
 
   //minuman

@@ -18,25 +18,20 @@ $(document).ready(function () {
       if (hasil.length > 0) {
         hasil.forEach((makanan) => {
           const card = `
-            <div class="card mb-3 max-h-64 border-dashed overflow-hidden border-2 grid grid-cols-2 gap-2">
-              <div class="card-body">
-                <img src="${makanan.gambar}" class="card-img" alt="...">
+            <a href="/html/informasi.html?nama=${encodeURIComponent(makanan.nama)}" class="shadow-[4px_4px_0px_rgba(0,0,0,1)] flex gap-2 border">
+              <img class="h-auto w-24 object-cover" src="${makanan.gambar}" alt="">
+              <div class="py-2">
+                <p class="italic text-sm">${makanan.kategori}</p>
+                <p class="font-bold text-xl ibm-plex-serif-regular">${makanan.nama}</p>
+                <p>${makanan.deskripsi}</p>
               </div>
-              <div class="card-body">
-              <p class="card-text">${makanan.kategori}</p>
-                <h5 class="text-2xl">${makanan.nama}</h5>
-                <p class="card-text">${makanan.deskripsi}</p>
-                <a href="/html/informasi.html?nama=${encodeURIComponent(
-                  makanan.nama
-                )}" class="btn btn-dark">Lihat Gizi</a>
-              </div>
-            </div>
+            </a>
           `;
           $searchResults.append(card);
         });
       } else {
         $searchResults.html(
-          '¯\_(ツ)_/¯<p class="text-muted">Makanan tidak ditemukan.</p>'
+          '<h1 class="text-5xl">¯\\_(ツ)_/¯</h1><p class="text-muted">Makanan tidak ditemukan.</p>'
         );
       }
     });
@@ -195,7 +190,7 @@ $(document).ready(function () {
                   <div class="card h-100">
                     <div class="card-body"></div>
                       <h5 class="card-title">${makanan.nama}</h5>
-                      <img src="${makanan.gambar}" class="card-img" alt="...">
+                      <img src="${makanan.gambar}" class="h-5" alt="test">
                       <p class="card-text">${
                         makanan.deskripsi || "Klik untuk lihat detail"
                       }</p>
