@@ -31,7 +31,7 @@ $(document).ready(function () {
         });
       } else {
         $searchResults.html(
-          '<h1 class="text-5xl">¯\\_(ツ)_/¯</h1><p class="text-muted">Makanan tidak ditemukan.</p>'
+          '<h1 class="text-5xl">¯\\_(ツ)_/¯</h1><p class="text-muted">Makanan tidak ditemukan..</p>'
         );
       }
     });
