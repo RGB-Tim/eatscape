@@ -26,7 +26,7 @@ $(document).ready(function () {
               <p class="card-text">${makanan.kategori}</p>
                 <h5 class="text-2xl">${makanan.nama}</h5>
                 <p class="card-text">${makanan.deskripsi}</p>
-                <a href="informasi.html?nama=${encodeURIComponent(
+                <a href="/html/informasi.html?nama=${encodeURIComponent(
                   makanan.nama
                 )}" class="btn btn-dark">Lihat Gizi</a>
               </div>
@@ -142,11 +142,12 @@ $(document).ready(function () {
   if (makanan) {
     $("#judulMakanan").text(makanan.nama);
     $("#infoGizi").html(`
-       <div class="col-md-6">
+       <div class="col-md-6"></div>
         <div class="card">
            <div class="card-body">
             <h5 class="card-title">${makanan.nama}</h5>
-            <img src="${makanan.gambar}" class="card-img" alt="...">
+            <p>Sajian ${makanan.sajian}</p>
+            <img src="../${makanan.gambar}" class="card-img" alt="${makanan.gambar}">
             <p class="card-text">${
               makanan.deskripsi || "Tidak ada deskripsi."
             }</p>
@@ -192,13 +193,13 @@ $(document).ready(function () {
                   (makanan) => `
                 <div class="col-md-4 mb-3">
                   <div class="card h-100">
-                    <div class="card-body">
+                    <div class="card-body"></div>
                       <h5 class="card-title">${makanan.nama}</h5>
                       <img src="${makanan.gambar}" class="card-img" alt="...">
                       <p class="card-text">${
                         makanan.deskripsi || "Klik untuk lihat detail"
                       }</p>
-                      <a href="informasi.html?nama=${encodeURIComponent(
+                      <a href="/html/informasi.html?nama=${encodeURIComponent(
                         makanan.nama
                       )}" class="btn btn-success">Lihat Gizi</a>
                     </div>
