@@ -142,7 +142,7 @@ $(document).ready(function () {
            <div class="card-body">
             <h5 class="card-title">${makanan.nama}</h5>
             <p>Sajian ${makanan.sajian}</p>
-            <img src="../${makanan.gambar}" class="card-img" alt="${makanan.gambar}">
+            <img src="${makanan.gambar}" class="card-img" alt="${makanan.gambar}">
             <p class="card-text">${
               makanan.deskripsi || "Tidak ada deskripsi."
             }</p>
