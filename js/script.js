@@ -18,7 +18,7 @@ $(document).ready(function () {
       if (hasil.length > 0) {
         hasil.forEach((makanan) => {
           const card = `
-            <a href="/html/informasi.html?nama=${encodeURIComponent(makanan.nama)}" class="shadow-[4px_4px_0px_rgba(0,0,0,1)] flex gap-2 border">
+            <a href="/html/informasi.html?nama=${encodeURIComponent(makanan.nama)}" class="m-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] flex gap-2 border">
               <img class="h-auto w-24 object-cover" src="${makanan.gambar}" alt="">
               <div class="py-2">
                 <p class="italic text-sm">${makanan.kategori}</p>
