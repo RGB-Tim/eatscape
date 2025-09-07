@@ -18,12 +18,12 @@ $(document).ready(function () {
       if (hasil.length > 0) {
         hasil.forEach((makanan) => {
           const card = `
-            <a href="/html/informasi.html?nama=${encodeURIComponent(makanan.nama)}" class="m-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] flex gap-2 border">
-              <img class="h-auto w-24 object-cover" src="${makanan.gambar}" alt="">
+            <a href="/html/informasi.html?nama=${encodeURIComponent(makanan.nama)}" class="m-2 flex gap-2">
+              <img class="h-14 w-14 object-cover" src="${makanan.gambar}" alt="">
               <div class="py-2">
-                <p class="italic text-sm">${makanan.kategori}</p>
-                <p class="font-bold text-xl ibm-plex-serif-regular">${makanan.nama}</p>
-                <p>${makanan.deskripsi}</p>
+                
+                <p class="font-bold ibm-plex-serif-regular">${makanan.nama}</p>
+                <p class="text-sm">${makanan.deskripsi}</p>
               </div>
             </a>
           `;
@@ -31,7 +31,7 @@ $(document).ready(function () {
         });
       } else {
         $searchResults.html(
-          '<h1 class="text-5xl">¯\\_(ツ)_/¯</h1><p class="text-muted">Makanan tidak ditemukan..</p>'
+          '<div class="m-5"><h1 class="ibm-plex-serif-regular text-4xl">¯\\_(ツ)_/¯</h1><br><h1 class="text-sm">Makanan tidak ditemukan..</h1></div>'
         );
       }
     });

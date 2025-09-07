@@ -18,52 +18,35 @@
 <body>
   <!-- Navbar -->
   <nav>
-    <div id="navi" class="py-2 mx-auto px-16 fixed top-0 right-0 left-0">
-      <div class="relative flex h-16 items-center justify-between">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
-          <button type="button" command="--toggle" commandfor="mobile-menu"
-            class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
-            <span class="absolute -inset-0.5"></span>
-            <span class="sr-only">Open main menu</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-              aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-              aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-              <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-        </div>
-        <div class="flex gap-5 items-center justify-bet sm:items-stretch sm:justify-start">
-          <div class="flex shrink-0 items-center">
-            <a href=""><img src="images/logo.svg" alt="Your Company" class="h-8 w-auto"/></a>
+    <div id="navi" class="mx-auto fixed top-0 right-0 left-0 bg-white border-b">
+      <div class="relative flex items-center items-stretch justify-between">
+        <div class="flex items-center items-stretch">
+          <div class="flex py-4 px-6 items-center">
+            <a href=""><img src="images/logo.svg" alt="Eatscape" class="h-8 w-auto"/></a>
           </div>
+          <div class="flex items-center border-l">
+            <svg class="m-3" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
             <input type="text" id="searchInput"
-              class="form-control border p-2 shadow-[4px_4px_0px_rgba(29,68,161,1)] focus:shadow-none focus:border-3 focus:border-[#1D44A1] focus:outline-none min-w-xl"
+              class="form-control py-3 focus:shadow-none focus:outline-none h-full min-w-4xl"
               placeholder="Cari makanan..." />
-            <div id="searchResults" class="overflow-auto absolute bg-white px z-10 mt-3 grid gap-3 w-fit top-15 left-13"></div>
+            <div id="searchResults" class="border overflow-auto absolute bg-white z-10 mt-3 grid w-fit top-14 left-20"></div>
+          </div>
         </div>
-        <div class="flex space-x-4">
-          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-          <a href="#" aria-current="page" class="rounded-md px-3 py-2 text-sm font-medium">BERANDA</a>
-          <a href="html/gizi.html" aria-current="page" class="rounded-md px-3 py-2 text-sm font-medium">TENTANG</a>
+
+
+        <div class="flex">
+          <a href="#" aria-current="page" class="border-l px-6 py-6 text-sm font-medium">BERANDA</a>
+          <a href="#" aria-current="page" class="border-l px-6 py-6 text-sm font-medium">APLIKASI</a>
+          <a href="#" aria-current="page" class="border-l px-6 py-6 text-sm font-medium">LAYANAN API</a>
+          <a href="html/gizi.html" aria-current="page" class="px-3 px-6 py-6 border-l py-2 text-sm font-medium">TENTANG</a>
         </div>
       </div>
     </div>
-
-    <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
-      <div class="space-y-1 px-2 pt-2 pb-3">
-        <a href="#" aria-current="page"
-          class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-      </div>
-    </el-disclosure>
   </nav>
 
 
   <main class="">
-    <img src="images/banner.png" class="object-cover w-full" alt="">
+    <img src="images/banner.png" class="object-cover w-full border-b" alt="">
     <!-- Hero Section -->
     <header class="bg-light py-5 grid grid-cols-1 gap-2 my-10">
 
@@ -72,10 +55,7 @@
         <h1 class="ibm-plex-serif-light text-5xl">Mesin Pencari Makanan Canggih</h1>
 
         <section class="container my-5">
-            <div class="flex gap-2">
-              <span class="border py-1 px-2">nasi putih</span>
-              <span class="border py-1 px-2">bayam</span>
-            </div>
+          <p>Lorem ipsum dolor sit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et.</p>
         </section>
 
       </div>
@@ -135,7 +115,7 @@
   <script src="js/data-makanan.js"></script>
   <script src="js/script.js"></script>
 
-  <script>
+  <!-- <script>
   const nav = document.getElementById("navi")
 
   window.addEventListener("scroll", () => {
@@ -149,7 +129,7 @@
       nav.classList.add("bg-transparent");
     }
   });
-  </script>
+  </script> -->
 </body>
 
 </html>
