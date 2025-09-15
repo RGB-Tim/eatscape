@@ -1,5 +1,25 @@
 // js/script.js
 
+// Navbar
+// Keren buatan ega no AI asli no fake
+  const menu = document.getElementById("menu");
+
+function toggleMenu() {
+  menu.classList.toggle("hidden");
+}
+
+// Force hide on large screens (≥64rem)
+function checkScreen() {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  if (window.innerWidth >= 64 * rem) {
+    menu.classList.add("hidden");
+  }
+}
+
+// Run once on load and whenever screen resizes
+checkScreen();
+window.addEventListener("resize", checkScreen);
+
 // data json
 let dataMakanan = [];
 
