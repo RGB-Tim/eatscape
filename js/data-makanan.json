@@ -2,7 +2,7 @@
   { 
     "nama": "Indomie Mi Goreng",
     "sajian":"Per 1 bungkus (±80 g)",
-    "gambar": "https://nilaigizi.com/assets/images/produk/produk_1577868690.jpg",
+    "gambar": "https://www.indomie.com/uploads/product/indomie-mi-goreng-special_detail_094906814.png",
     "deskripsi": "Mi instan goreng rasa original.",
     "kategori": "Makanan Kemasan",
     "kalori": 350, 
@@ -15,7 +15,7 @@
   {
     "nama": "Indomie Mi Goreng Rendang",
     "sajian":"Per 1 bungkus (±85 g).",
-    "gambar": "https://nilaigizi.com/assets/images/produk/produk_1579176663.jpg",
+    "gambar": "https://www.indomie.com/uploads/product/indomie-mi-goreng-rendang-flavour_detail_114846026.png",
     "deskripsi": "Mi instan goreng rasa rendang. ",
     "kategori": "Makanan Kemasan",
     "kalori": 440,
@@ -28,7 +28,7 @@
   { 
     "nama": "Qtela Tempe Original",
     "sajian":"(20 g)",
-    "gambar": "images/qtela_tempe_original.jpg",
+    "gambar": "https://www.indofood.com/images/microsite/product/278qtela-tempe-original.jpg",
     "deskripsi": "Keripik tempe rasa original.",
     "kategori": "Makanan Kemasan",
     "kalori": 110,
@@ -41,7 +41,7 @@
   { 
     "nama": "Chitato Rasa Sapi Panggang",
     "sajian":" Per 1 porsi (±20 g)",
-    "gambar": "images/chitato_sapi_panggang.jpg",
+    "gambar": "https://www.chitato.com/adminchitato/Upload/Product/20140711123037687chitato-sapipanggang.png",
     "deskripsi": "Keripik kentang bergelombang rasa sapi panggang.",
     "kategori": "Makanan Kemasan",
     "kalori": 110,
@@ -54,7 +54,7 @@
   { 
     "nama": "Oreo Original (3 keping)",
     "sajian":"Per 3 keping (±28 g)",
-    "gambar": "images/oreo_original.jpg",
+    "gambar": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//632/oreo_oreo-biskuit-vanila--137-g-_full02.jpg",
     "deskripsi": "Biskuit sandwich krim vanila.",
     "kategori": "Makanan Kemasan",
     "kalori": 130,
@@ -69,7 +69,7 @@
   {
     "nama": "KFC Ayam Dada Crispy",
     "sajian":"Per 1 potong (±181 g)",
-    "gambar": "images/kfc_dada_crispy.jpg",
+    "gambar": "https://yakurir.com/uploads/barang/26.04-11.36.20-dada-ayam-kfc.jpg",
     "deskripsi": "Ayam goreng bagian dada (crispy). ",
     "kategori": "Cepat Saji",
     "kalori": 520,
@@ -82,7 +82,7 @@
   {
     "nama": "KFC Sayap Crispy",
     "sajian":"Per 1 sayap",
-    "gambar": "images/kfc_sayap_crispy.jpg",
+    "gambar": "https://st5.depositphotos.com/82085800/67652/i/450/depositphotos_676527570-stock-photo-fried-chicken-wing-isolated-white.jpg",
     "deskripsi": "Ayam goreng bagian sayap (crispy). ",
     "kategori": "Cepat Saji",
     "kalori": 170,
@@ -95,7 +95,7 @@
   {
     "nama": "Pizza Hut Meat Lovers (Large Slice)",
     "sajian":"Per 1 potong besar (±175 g)",
-    "gambar": "images/pizzahut_meatlovers_large_slice.jpg",
+    "gambar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7W3-TXeyh14FXLiuaGexjHngQu0FHpRO1JQ&s",
     "deskripsi": "Pizza topping daging.",
     "kategori": "Cepat Saji",
     "kalori": 470,
@@ -123,7 +123,7 @@
   {
     "nama": "Lontong",
     "sajian":"Per 100 g",
-    "gambar": "images/lontong.jpg",
+    "gambar": "https://images.tokopedia.net/img/KRMmCm/2023/4/11/5471e559-c809-4e2e-8346-81a2bb48b55e.jpg",
     "deskripsi": "Beras yang dikukus dalam daun pisang. ",
     "kategori": "Tinggi Karbo",
     "kalori": 102,
@@ -136,7 +136,7 @@
   { 
     "nama": "Quaker Whole Rolled Oats",
     "sajian":"Per 100 g",
-    "gambar": "images/quaker_whole_rolled_oats.jpg",
+    "gambar": "https://i.gojekapi.com/darkroom/gomart-public-production/v2/images/public/images/096c1150-4531-4749-981f-8e11e01b3ac8_Quaker-Rolled-Oats-800-g.jpg",
     "deskripsi": "Oat utuh gulung.",
     "kategori": "Tinggi Karbo",
     "kalori": 400,
@@ -149,7 +149,7 @@
   {
     "nama": "Roti Tawar Putih",
     "sajian":"Per 1 lembar (±25 g)",
-    "gambar": "images/roti_tawar_putih.jpg",
+    "gambar": "https://nilaigizi.com/assets/images/produk/produk_1537406102.jpeg",
     "deskripsi": "Roti tawar biasa.",
     "kategori": "Tinggi Karbo",
     "kalori": 67,
@@ -164,7 +164,7 @@
   { 
     "nama": "Teh Botol Sosro",
     "sajian":"Per 1 botol (±350 ml)",
-    "gambar": "images/teh_botol_sosro.jpg",
+    "gambar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCXMD35gn1ED-gL0CFx1hDqCTqtzAH_jAV6A&s",
     "deskripsi": "Teh manis siap minum.",
     "kategori": "Minuman",
     "kalori": 80,
@@ -177,7 +177,7 @@
   {
     "nama": "Teh Pucuk Harum",
     "sajian":"Per 1 botol (±350 ml)",
-    "gambar": "images/teh_pucuk_harum.jpg",
+    "gambar": "https://c.alfagift.id/product/1/1_A12790002397_20200427203108155_base.jpg",
     "deskripsi": "Teh manis siap minum. ",
     "kategori": "Minuman",
     "kalori": 75,
@@ -190,7 +190,7 @@
   {
     "nama": "Aqua Air Mineral",
     "sajian":"Per 1 botol (±600 ml)",
-    "gambar": "images/aqua_air_mineral.jpg",
+    "gambar": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//105/MTA-10881878/aqua_aqua-air-mineral-btl-600-ml_full01.jpg",
     "deskripsi": "Air mineral dalam kemasan.",
     "kategori": "Minuman",
     "kalori": 0,
@@ -203,7 +203,7 @@
   {
     "nama": "Soda (Kaleng 350 ml)",
     "sajian":"Per 1 kaleng (±350 ml)",
-    "gambar": "images/soda_kaleng.jpg",
+    "gambar": "https://media.istockphoto.com/id/1335487810/id/foto/350ml-energi-minum-soda-dapat-mockup-template-dengan-tetesan-air-terisolasi-pada-latar.jpg?s=612x612&w=0&k=20&c=14IFwIt51SIQn5QjuVWq2OS70vJ6uKqY62_tN0Xlevs=",
     "deskripsi": "Minuman bersoda. ",
     "kategori": "Minuman",
     "kalori": 140,
@@ -216,7 +216,7 @@
   {
     "nama": "Ultra Milk UHT Full Cream (200 ml)",
     "sajian":"Per 1 pak (200 ml)",
-    "gambar": "images/ultra_milk_fullcream_200.jpg",
+    "gambar": "https://c.alfagift.id/product/1/1_A7671640001094_20230705095807377_base.jpg",
     "deskripsi": "Susu UHT full cream.",
     "kategori": "Minuman",
     "kalori": 120,
@@ -231,7 +231,7 @@
   { 
     "nama": "Jeruk Manis (segar)",
     "sajian":"Per 100 g BDD (Berat Dapat Dimakan)",
-    "gambar": "images/jeruk_manis.jpg",
+    "gambar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/1920px-Oranges_-_whole-halved-segment.jpg",
     "deskripsi": "Jeruk manis segar.",
     "kategori": "Buah",
     "kalori": 45,
@@ -244,7 +244,7 @@
   { 
     "nama": "Pisang Ambon (segar)",
     "sajian":"Per 100 g BDD (Berat Dapat Dimakan)",
-    "gambar": "images/pisang_ambon.jpg",
+    "gambar": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1724996747/attached_image/11-manfaat-pisang-ambon-untuk-tubuh-yang-sehat.jpg",
     "deskripsi": "Pisang ambon segar.",
     "kategori": "Buah",
     "kalori": 108,
@@ -257,7 +257,7 @@
   { 
     "nama": "Alpukat (segar)",
     "sajian":"Per 100 g BDD (Berat Dapat Dimakan)",
-    "gambar": "images/alpukat.jpg",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2022/01/10053526/Ini-Manfaat-Buah-Alpukat-untuk-Kesehatan-01.jpg.webp",
     "deskripsi": "Alpukat segar.",
     "kategori": "Buah",
     "kalori": 85,
@@ -284,7 +284,7 @@
   {
     "nama": "Sayur Sop",
     "sajian":"Per 1 porsi umum",
-    "gambar": "images/sayur_sop.jpg",
+    "gambar": "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/07/24061805/Praktis-dan-Mudah-Ini-Resep-Sayur-Sop-yang-Gurih-dan-Lezat-untuk-Menu-Sehari-hari.jpg",
     "deskripsi": "Sup sayuran rumahan.",
     "kategori": "Sayur/Sup",
     "kalori": 126,
@@ -298,7 +298,7 @@
   { 
     "nama": "Mie Bakso",
     "sajian":"Per 100 g BDD (Berat Dapat Dimakan)",
-    "gambar": "images/mie_bakso.jpg",
+    "gambar": "https://www.masakapahariini.com/wp-content/uploads/2019/11/resep-mie-bakso.jpg",
     "deskripsi": "Mi dengan bakso dan kuah (lihat sumber untuk takaran).",
     "kategori": "Makanan Mie",
     "kalori": 114,
@@ -312,7 +312,7 @@
   { 
     "nama": "Intip Goreng",
     "sajian":"Per 100 g",
-    "gambar": "images/intip_goreng.jpg",
+    "gambar": "https://img-global.cpcdn.com/recipes/4dece0e171a7ee52/1200x630cq80/photo.jpg",
     "deskripsi": "Kerak nasi goreng (snack).",
     "kategori": "Camilan",
     "kalori": 474,
@@ -327,7 +327,7 @@
   { 
     "nama": "Telur Ceplok (goreng)",
     "sajian":"Per 1 porsi",
-    "gambar": "images/telur_ceplok.jpg",
+    "gambar": "https://asset.kompas.com/crops/WWm_hQkwvKz8d7VEsE96vkIsIfU=/0x0:998x665/1200x800/data/photo/2021/03/25/605c078facd06.jpg",
     "deskripsi": "Telur goreng mata sapi.",
     "kategori": "protein Hewani",
     "kalori": 196,
