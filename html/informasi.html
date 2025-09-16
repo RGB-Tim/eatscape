@@ -1,59 +1,233 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eatscape - Sebuah Mesin Pencari Makanan</title>
-  <link rel="icon" type="image/x-icon" href="/images/icon.png">
-  <!-- pakai bootstrap, diganti aja gapapa pake tailwind dkk biar menarik -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eatscape - Sebuah Mesin Pencari Makanan</title>
+    <link rel="icon" type="image/x-icon" href="/images/icon.png" />
+    <!-- pakai bootstrap, diganti aja gapapa pake tailwind dkk biar menarik -->
+    <!-- Fon, Gaya, Ikon -->
+    <link rel="icon" type="image/x-icon" href="/images/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- ini bagian Scripts ygy -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+      defer
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="../js/script.js" defer></script>
+  </head>
 
-<body>
-    <!-- NAVBAR SMALL: 16 FULL: 18-->
-  <nav class="mx-auto fixed top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
-    <div class="flex items-center flex-1 items-stretch">
-      <div class="flex lg:w-18 lg:h-18 w-16 h-16 justify-center items-center">
-        <a href="../index.html"><img src="../images/logo.svg" alt="Eatscape" class="h-8 w-auto"/></a>
+  <body>
+    <!-- NAVBAR, MOBILE: h-16 | DESKTOP: h-18 -->
+    <nav
+      class="mx-auto fixed top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between"
+    >
+      <div class="flex items-center flex-1 items-stretch">
+        <div class="flex lg:w-18 lg:h-18 w-16 h-16 justify-center items-center">
+          <a href="../index.html"
+            ><img src="../images/logo.svg" alt="Eatscape" class="h-8 w-auto"
+          /></a>
+        </div>
+        <div class="flex items-center border-l grow">
+          <svg
+            class="ml-3 hidden lg:flex"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#000000"
+          >
+            <path
+              d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+            />
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="ml-3 flex-grow min-w-10 py-3 focus:shadow-none focus:outline-none"
+            placeholder="Cari makanan..."
+          />
+          <div
+            id="searchResults"
+            class="border overflow-auto absolute bg-white z-10 mt-3 grid w-fit top-14 left-20"
+          ></div>
+        </div>
       </div>
-      <div class="flex items-center border-l grow">
-        <svg class="ml-3 hidden lg:flex" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-        <input type="text" id="searchInput" class="ml-3 flex-grow min-w-10 py-3 focus:shadow-none focus:outline-none" placeholder="Cari makanan..." />
-        <div id="searchResults" class="border overflow-auto absolute bg-white z-10 mt-3 grid w-fit top-14 left-20"></div>
-      </div>
-    </div>
 
+      <!-- FULL WIDTH MENU -->
+      <div class="flex">
+        <a
+          href="../index.html"
+          aria-current="page"
+          class="hidden px-6 lg:flex border-l text-sm items-center"
+          >BERANDA</a
+        >
+        <a
+          href="#"
+          aria-current="page"
+          class="hidden px-6 lg:flex border-l text-sm items-center"
+          >APLIKASI</a
+        >
+        <a
+          href="#"
+          aria-current="page"
+          class="hidden px-6 lg:flex border-l text-sm items-center"
+          >LAYANAN API</a
+        >
+        <a
+          href="gizi.html"
+          aria-current="page"
+          class="hidden px-6 lg:flex border-l text-sm items-center"
+          >TENTANG</a
+        >
+      </div>
+
+      <!-- SMALL WIDTH MENU -->
+      <div class="flex">
+        <button
+          href="html/gizi.html"
+          aria-current="page"
+          onclick="toggleMenu()"
+          class="cursor-pointer flex items-center justify-center w-16 h-16 lg:hidden border-l text-sm font-medium"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#1f1f1f"
+          >
+            <path
+              d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
     <!-- FULL WIDTH MENU -->
-    <div class="flex">
-      <a href="../index.html" aria-current="page" class="hidden px-6 lg:flex border-l text-sm items-center">BERANDA</a>
-      <a href="#" aria-current="page" class="hidden px-6 lg:flex border-l text-sm items-center">APLIKASI</a>
-      <a href="#" aria-current="page" class="hidden px-6 lg:flex border-l text-sm items-center">LAYANAN API</a>
-      <a href="#" aria-current="page" class="hidden px-6 lg:flex border-l text-sm items-center">TENTANG</a>
+    <div id="menu" class="grid w-full divide-y-1 border-b">
+      <a
+        href="../index.html"
+        aria-current="page"
+        class="block grid w-full py-4 px-8 text-sm items-center"
+        >BERANDA</a
+      >
+      <a
+        href="#"
+        aria-current="page"
+        class="block grid w-full py-4 px-8 text-sm items-center"
+        >APLIKASI</a
+      >
+      <a
+        href="#"
+        aria-current="page"
+        class="block grid w-full py-4 px-8 text-sm items-center"
+        >LAYANAN API</a
+      >
+      <a
+        href="gizi.html"
+        aria-current="page"
+        class="block grid w-full py-4 px-8 text-sm items-center"
+        >TENTANG</a
+      >
     </div>
 
-    <!-- SMALL WIDTH MENU -->
-    <div class="flex">
-      <a href="html/gizi.html" aria-current="page" class="flex items-center justify-center w-16 h-16 lg:hidden border-l text-sm font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-      </a>
-    </div>
-  </nav>
+    <!-- KONTEN -->
+    <main class="pt-24 max-w-7xl mx-auto px-4">
+      <h1
+        id="judulMakanan"
+        class="text-3xl md:text-4xl font-bold text-gray-900 mb-8"
+      ></h1>
 
-  <!-- Informasi Makanan Section -->
-  <section class="container my-5">
-    <h2 class="text-center mb-4" id="judulMakanan">Informasi Gizi</h2>
-    <div id="infoGizi" class="row justify-content-center"></div>
-  </section>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- BAGIAN KIRI -->
+        <section class="bg-white p-6 rounded-2xl shadow order-2 md:order-1">
+          <h2 class="text-xl font-semibold mb-4 text-green-700">
+            Informasi Gizi
+          </h2>
+          <p id="sajianMakanan" class="text-sm text-gray-500 mb-4"></p>
 
+          <table class="w-full border border-gray-300 text-sm">
+            <tbody id="tabelGizi" class="divide-y divide-gray-300"></tbody>
+          </table>
 
-  <!-- ini bagian Scripts ygy -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="../js/data-makanan.js"></script>
-  <script src="../js/script.js"></script>
-</body>
+          <!-- AKG -->
+          <p id="infoAKG" class="text-sm text-gray-600 mt-4"></p>
+
+          <!-- PIE CHART -->
+          <div class="mt-6 flex flex-col items-center">
+            <div id="pie-chart" class="w-40 h-40 rounded-full"></div>
+            <p class="text-xs text-gray-500 mt-2">Distribusi Kalori</p>
+            <div id="detailChart" class="mt-2 text-xs text-gray-600"></div>
+          </div>
+        </section>
+
+        <!-- BAGIAN KANAN -->
+        <section class="bg-white p-6 rounded-2xl shadow flex flex-col order-1 md:order-2">
+          <div class="flex justify-between items-start mb-4">
+            <img
+              id="gambarMakanan"
+              src=""
+              alt="Gambar Makanan"
+              class="rounded-lg w-2/3 h-64 object-contain"
+            />
+            <img
+              src="../images/halal.png"
+              alt="Logo Halal"
+              class="w-12 h-12 ml-4"
+            />
+          </div>
+
+          <h2 id="namaMakanan" class="text-2xl font-semibold mb-2"></h2>
+          <p
+            id="deskripsiMakanan"
+            class="text-gray-600 leading-relaxed mb-4"
+          ></p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-auto">
+            <div class="p-3 border rounded-lg shadow-sm text-center">
+              <p id="kaloriBox" class="font-bold text-lg text-red-500">0</p>
+              <span class="text-xs text-gray-600">Kalori</span>
+            </div>
+            <div class="p-3 border rounded-lg shadow-sm text-center">
+              <p id="lemakBox" class="font-bold text-lg text-yellow-500">0 g</p>
+              <span class="text-xs text-gray-600">Lemak</span>
+            </div>
+            <div class="p-3 border rounded-lg shadow-sm text-center">
+              <p id="karboBox" class="font-bold text-lg text-blue-500">0 g</p>
+              <span class="text-xs text-gray-600">Karbohidrat</span>
+            </div>
+            <div class="p-3 border rounded-lg shadow-sm text-center">
+              <p id="proteinBox" class="font-bold text-lg text-green-500">
+                0 g
+              </p>
+              <span class="text-xs text-gray-600">Protein</span>
+            </div>
+          </div>
+
+          <a
+            id="sumberLink"
+            href="#"
+            target="_blank"
+            class="mt-4 text-sm text-green-600 hover:underline"
+          >
+            Lihat sumber gizi
+          </a>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
