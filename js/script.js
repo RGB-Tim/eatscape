@@ -49,17 +49,21 @@ function initApp() {
 
         if (query.length === 0) return;
 
-        const hasil = dataMakanan.filter((makanan) =>
-          makanan.nama.toLowerCase().includes(query)
-        );
+        const hasil = dataMakanan.filter((makanan) => makanan.nama.toLowerCase().includes(query));
 
         if (hasil.length > 0) {
           hasil.forEach((makanan) => {
             const card = `
-              <a href="/html/informasi.html?nama=${encodeURIComponent(makanan.nama)}" class="m-2 flex gap-2">
-                <img class="h-14 w-14 object-cover" src="${makanan.gambar}" alt="">
+              <a href="/html/informasi.html?nama=${encodeURIComponent(
+                makanan.nama
+              )}" class="m-2 flex gap-2">
+                <img class="h-14 w-14 object-cover" src="${
+                  makanan.gambar
+                }" alt="">
                 <div class="py-2">
-                  <p class="font-bold ibm-plex-serif-regular">${makanan.nama}</p>
+                  <p class="font-bold ibm-plex-serif-regular">${
+                    makanan.nama
+                  }</p>
                   <p class="text-sm">${makanan.deskripsi}</p>
                 </div>
               </a>
@@ -84,9 +88,7 @@ function initApp() {
         $list.empty();
         if (!keyword) return;
 
-        const filtered = dataMakanan.filter((m) =>
-          m.nama.toLowerCase().includes(keyword)
-        );
+        const filtered = dataMakanan.filter((m) => m.nama.toLowerCase().includes(keyword));
         filtered.forEach((item) => {
           const option = $('<div class="autocomplete-item"></div>').text(item.nama);
           option.on("click", () => {
@@ -134,15 +136,27 @@ function initApp() {
           </tr>
         </thead>
         <tbody>
-          <tr><td>Kalori</td>${data.map((m) => `<td>${m.kalori} kkal</td>`).join("")}</tr>
-          <tr><td>Protein</td>${data.map((m) => `<td>${m.protein} g</td>`).join("")}</tr>
-          <tr><td>Lemak</td>${data.map((m) => `<td>${m.lemak} g</td>`).join("")}</tr>
-          <tr><td>Karbohidrat</td>${data.map((m) => `<td>${m.karbohidrat} g</td>`).join("")}</tr>
-          <tr><td>Vitamin</td>${data.map((m) => `<td>${m.vitamin || "-"}</td>`).join("")}</tr>
+          <tr><td>Kalori</td>${data
+            .map((m) => `<td>${m.kalori} kkal</td>`)
+            .join("")}</tr>
+          <tr><td>Protein</td>${data
+            .map((m) => `<td>${m.protein} g</td>`)
+            .join("")}</tr>
+          <tr><td>Lemak</td>${data
+            .map((m) => `<td>${m.lemak} g</td>`)
+            .join("")}</tr>
+          <tr><td>Karbohidrat</td>${data
+            .map((m) => `<td>${m.karbohidrat} g</td>`)
+            .join("")}</tr>
+          <tr><td>Vitamin</td>${data
+            .map((m) => `<td>${m.vitamin || "-"}</td>`)
+            .join("")}</tr>
         </tbody>
       </table>`;
 
-      const rekomendasi = data.reduce((a, b) =>a.protein > b.protein ? a : b);
+      const rekomendasi = data.reduce((a, b) =>
+        a.protein > b.protein ? a : b
+      );
       tabel += `<div class="alert alert-info">Rekomendasi: <strong>${rekomendasi.nama}</strong> memiliki kandungan protein tertinggi.</div>`;
       $("#hasilPerbandingan").html(tabel);
     }
@@ -155,7 +169,9 @@ function initApp() {
       fetch("/js/data-makanan.json")
         .then((res) => res.json())
         .then((dataMakanan) => {
-          const makanan = dataMakanan.find((m) => m.nama.toLowerCase() === namaMakanan?.toLowerCase());
+          const makanan = dataMakanan.find(
+            (m) => m.nama.toLowerCase() === namaMakanan?.toLowerCase()
+          );
 
           if (makanan) {
             // Judul utama
@@ -165,37 +181,59 @@ function initApp() {
             document.getElementById("gambarMakanan").src = makanan.gambar;
             document.getElementById("gambarMakanan").alt = makanan.nama;
             document.getElementById("namaMakanan").textContent = makanan.nama;
-            document.getElementById("deskripsiMakanan").textContent = makanan.deskripsi || "Tidak ada deskripsi.";
-            document.getElementById("sajianMakanan").textContent = makanan.sajian || "";
+            document.getElementById("deskripsiMakanan").textContent =
+              makanan.deskripsi || "Tidak ada deskripsi.";
+            document.getElementById("sajianMakanan").textContent =
+              makanan.sajian || "";
 
             // Box highlight
-            document.getElementById("kaloriBox").textContent = makanan.kalori + " kkal";
-            document.getElementById("proteinBox").textContent = makanan.protein + " g";
-            document.getElementById("lemakBox").textContent = makanan.lemak + " g";
-            document.getElementById("karboBox").textContent = makanan.karbohidrat + " g";
+            document.getElementById("kaloriBox").textContent =
+              makanan.kalori + " kkal";
+            document.getElementById("proteinBox").textContent =
+              makanan.protein + " g";
+            document.getElementById("lemakBox").textContent =
+              makanan.lemak + " g";
+            document.getElementById("karboBox").textContent =
+              makanan.karbohidrat + " g";
 
             // Link sumber
             document.getElementById("sumberLink").href = makanan.sumber;
 
             // Tabel gizi (pakai garis per baris)
             document.getElementById("tabelGizi").innerHTML = `
-              <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${makanan.kalori} kkal</td></tr>
-              <tr><td class="p-2 font-medium">Protein</td><td class="p-2">${makanan.protein} g</td></tr>
-              <tr><td class="p-2 font-medium">Lemak</td><td class="p-2">${makanan.lemak} g</td></tr>
-              <tr><td class="p-2 font-medium">Karbohidrat</td><td class="p-2">${makanan.karbohidrat} g</td></tr>
-              <tr><td class="p-2 font-medium">Vitamin</td><td class="p-2">${makanan.vitamin || "-"}</td></tr>
+              <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${
+                makanan.kalori
+              } kkal</td></tr>
+              <tr><td class="p-2 font-medium">Protein</td><td class="p-2">${
+                makanan.protein
+              } g</td></tr>
+              <tr><td class="p-2 font-medium">Lemak</td><td class="p-2">${
+                makanan.lemak
+              } g</td></tr>
+              <tr><td class="p-2 font-medium">Karbohidrat</td><td class="p-2">${
+                makanan.karbohidrat
+              } g</td></tr>
+              <tr><td class="p-2 font-medium">Vitamin</td><td class="p-2">${
+                makanan.vitamin || "-"
+              }</td></tr>
             `;
 
             // AKG (% dari 2000 kkal)
             const persenAKG = ((makanan.kalori / 2000) * 100).toFixed(1);
-            document.getElementById("infoAKG").textContent = `${persenAKG}% dari AKG* (berdasarkan 2000 kkal per hari)`;
+            document.getElementById(
+              "infoAKG"
+            ).textContent = `${persenAKG}% dari AKG* (berdasarkan 2000 kkal per hari)`;
 
             // Pie chart
             const total = makanan.protein + makanan.lemak + makanan.karbohidrat;
             if (total > 0) {
-              const persenProtein = ((makanan.protein / total) * 100).toFixed(0);
+              const persenProtein = ((makanan.protein / total) * 100).toFixed(
+                0
+              );
               const persenLemak = ((makanan.lemak / total) * 100).toFixed(0);
-              const persenKarbo = ((makanan.karbohidrat / total) * 100).toFixed(0);
+              const persenKarbo = ((makanan.karbohidrat / total) * 100).toFixed(
+                0
+              );
 
               const pie = document.getElementById("pie-chart");
               pie.style.background = `
