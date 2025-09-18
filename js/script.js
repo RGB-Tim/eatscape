@@ -81,7 +81,9 @@ function initApp() {
     // === AUTOCOMPLETE untuk bandingkan.html ===
     function setupAutocomplete(inputId) {
       const $input = $(inputId);
-      const $list = $('<div class="autocomplete-list"></div>').insertAfter($input);
+      const $list = $('<div class="autocomplete-list"></div>').insertAfter(
+        $input
+      );
 
       $input.on("input", function () {
         const keyword = $input.val().toLowerCase();
@@ -90,7 +92,9 @@ function initApp() {
 
         const filtered = dataMakanan.filter((m) => m.nama.toLowerCase().includes(keyword));
         filtered.forEach((item) => {
-          const option = $('<div class="autocomplete-item"></div>').text(item.nama);
+          const option = $('<div class="autocomplete-item"></div>').text(
+            item.nama
+          );
           option.on("click", () => {
             $input.val(item.nama);
             $list.empty();
@@ -263,6 +267,15 @@ function initApp() {
           console.error("Gagal load data:", err);
         });
     }
+
+    // === ACCORDION GIZI ===
+    $(".accordion").click(function () {
+      $(".content").not($(this).next()).slideUp();
+      $(".accordion span").not($(this).find("span")).removeClass("rotate-180");
+
+      $(this).next(".content").slideToggle();
+      $(this).find("span").toggleClass("rotate-180");
+    });
 
     // === KATEGORI ===
     const kategori = {};
