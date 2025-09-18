@@ -76,12 +76,12 @@ function initApp() {
             const card = `
               <a href="/html/informasi.html?nama=${encodeURIComponent(
                 makanan.nama
-              )}" class="m-2 flex gap-2">
+              )}" class="rubik-r m-2 flex gap-2">
                 <img class="h-14 w-14 object-cover" src="${
                   makanan.gambar
                 }" alt="${makanan.nama}">
                 <div class="py-2">
-                  <p class="font-bold ibm-plex-serif-regular">${
+                  <p>${
                     makanan.nama
                   }</p>
                   <p class="text-sm">${makanan.deskripsi}</p>
@@ -92,7 +92,7 @@ function initApp() {
           });
         } else {
           $searchResults.html(
-            '<div class="m-5"><h1 class="ibm-plex-serif-regular text-4xl">¯\\_(ツ)_/¯</h1><br><h1 class="text-sm">Makanan tidak ditemukan..</h1></div>'
+            '<div class="m-5"><h1 class="ibm-plex-serif-regular text-3xl">¯\\_(ツ)_/¯</h1><br><h1 class="rubik-r text-sm">Makanan tidak ditemukan..</h1></div>'
           );
         }
       });
