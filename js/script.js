@@ -1,6 +1,8 @@
 // js/script.js
 
-// Navbar
+// ====================
+// NAVBAR
+// ====================
 // Keren buatan ega no AI asli no fake
 const menu = document.getElementById("menu");
 
@@ -8,10 +10,12 @@ function toggleMenu() {
   menu.classList.toggle("hidden");
 }
 
-// Force hide on large screens (≥64rem)
+// Force tampil di layar besar (≥64rem)
 function checkScreen() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
   if (window.innerWidth >= 64 * rem) {
+    menu.classList.remove("hidden");
+  } else {
     menu.classList.add("hidden");
   }
 }
@@ -20,22 +24,31 @@ function checkScreen() {
 checkScreen();
 window.addEventListener("resize", checkScreen);
 
-// data json
+// ====================
+// DATA JSON
+// ====================
 let dataMakanan = [];
 
-// load data makanan dari JSON
-fetch("/js/data-makanan.json")
-  .then((response) => {
-    if (!response.ok) throw new Error("Gagal memuat data");
-    return response.json();
-  })
-  .then((data) => {
-    dataMakanan = data;
-    initApp(); // jalankan aplikasi setelah data siap
-  })
-  .catch((error) => console.error("Error:", error));
+// Load data makanan dari JSON
+function loadDataMakanan() {
+  return fetch("/js/data-makanan.json")
+    .then((response) => {
+      if (!response.ok) throw new Error("Gagal memuat data");
+      return response.json();
+    })
+    .then((data) => {
+      dataMakanan = data;
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      return [];
+    });
+}
 
-// semua logic ada di dalam initApp()
+// ====================
+// INIT APP
+// ====================
 function initApp() {
   $(document).ready(function () {
     const $searchInput = $("#searchInput");
@@ -47,9 +60,16 @@ function initApp() {
         const query = $(this).val().toLowerCase();
         $searchResults.empty();
 
-        if (query.length === 0) return;
+        if (query.length === 0) {
+          $searchResults.html(
+            '<div class="m-5 text-gray-500">Ketik untuk mencari makanan...</div>'
+          );
+          return;
+        }
 
-        const hasil = dataMakanan.filter((makanan) => makanan.nama.toLowerCase().includes(query));
+        const hasil = dataMakanan.filter((makanan) =>
+          makanan.nama.toLowerCase().includes(query)
+        );
 
         if (hasil.length > 0) {
           hasil.forEach((makanan) => {
@@ -59,7 +79,7 @@ function initApp() {
               )}" class="m-2 flex gap-2">
                 <img class="h-14 w-14 object-cover" src="${
                   makanan.gambar
-                }" alt="">
+                }" alt="${makanan.nama}">
                 <div class="py-2">
                   <p class="font-bold ibm-plex-serif-regular">${
                     makanan.nama
@@ -90,7 +110,9 @@ function initApp() {
         $list.empty();
         if (!keyword) return;
 
-        const filtered = dataMakanan.filter((m) => m.nama.toLowerCase().includes(keyword));
+        const filtered = dataMakanan.filter((m) =>
+          m.nama.toLowerCase().includes(keyword)
+        );
         filtered.forEach((item) => {
           const option = $('<div class="autocomplete-item"></div>').text(
             item.nama
@@ -159,7 +181,7 @@ function initApp() {
       </table>`;
 
       const rekomendasi = data.reduce((a, b) =>
-        a.protein > b.protein ? a : b
+        (a.protein || 0) > (b.protein || 0) ? a : b
       );
       tabel += `<div class="alert alert-info">Rekomendasi: <strong>${rekomendasi.nama}</strong> memiliki kandungan protein tertinggi.</div>`;
       $("#hasilPerbandingan").html(tabel);
@@ -170,102 +192,94 @@ function initApp() {
       const urlParams = new URLSearchParams(window.location.search);
       const namaMakanan = urlParams.get("nama");
 
-      fetch("/js/data-makanan.json")
-        .then((res) => res.json())
-        .then((dataMakanan) => {
-          const makanan = dataMakanan.find(
-            (m) => m.nama.toLowerCase() === namaMakanan?.toLowerCase()
-          );
+      const makanan = dataMakanan.find(
+        (m) => m.nama.toLowerCase() === namaMakanan?.toLowerCase()
+      );
 
-          if (makanan) {
-            // Judul utama
-            document.getElementById("judulMakanan").textContent = makanan.nama;
+      if (makanan) {
+        // Judul utama
+        document.getElementById("judulMakanan").textContent = makanan.nama;
 
-            // Bagian kanan (produk)
-            document.getElementById("gambarMakanan").src = makanan.gambar;
-            document.getElementById("gambarMakanan").alt = makanan.nama;
-            document.getElementById("namaMakanan").textContent = makanan.nama;
-            document.getElementById("deskripsiMakanan").textContent =
-              makanan.deskripsi || "Tidak ada deskripsi.";
-            document.getElementById("sajianMakanan").textContent =
-              makanan.sajian || "";
+        // Bagian kanan (produk)
+        document.getElementById("gambarMakanan").src = makanan.gambar;
+        document.getElementById("gambarMakanan").alt = makanan.nama;
+        document.getElementById("namaMakanan").textContent = makanan.nama;
+        document.getElementById("deskripsiMakanan").textContent =
+          makanan.deskripsi || "Tidak ada deskripsi.";
+        document.getElementById("sajianMakanan").textContent =
+          makanan.sajian || "";
 
-            // Box highlight
-            document.getElementById("kaloriBox").textContent =
-              makanan.kalori + " kkal";
-            document.getElementById("proteinBox").textContent =
-              makanan.protein + " g";
-            document.getElementById("lemakBox").textContent =
-              makanan.lemak + " g";
-            document.getElementById("karboBox").textContent =
-              makanan.karbohidrat + " g";
+        // Box highlight
+        document.getElementById("kaloriBox").textContent =
+          makanan.kalori + " kkal";
+        document.getElementById("proteinBox").textContent =
+          makanan.protein + " g";
+        document.getElementById("lemakBox").textContent =
+          makanan.lemak + " g";
+        document.getElementById("karboBox").textContent =
+          makanan.karbohidrat + " g";
 
-            // Link sumber
-            document.getElementById("sumberLink").href = makanan.sumber;
+        // Link sumber
+        document.getElementById("sumberLink").href = makanan.sumber;
 
-            // Tabel gizi (pakai garis per baris)
-            document.getElementById("tabelGizi").innerHTML = `
-              <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${
-                makanan.kalori
-              } kkal</td></tr>
-              <tr><td class="p-2 font-medium">Protein</td><td class="p-2">${
-                makanan.protein
-              } g</td></tr>
-              <tr><td class="p-2 font-medium">Lemak</td><td class="p-2">${
-                makanan.lemak
-              } g</td></tr>
-              <tr><td class="p-2 font-medium">Karbohidrat</td><td class="p-2">${
-                makanan.karbohidrat
-              } g</td></tr>
-              <tr><td class="p-2 font-medium">Vitamin</td><td class="p-2">${
-                makanan.vitamin || "-"
-              }</td></tr>
-            `;
+        // Tabel gizi (pakai garis per baris)
+        document.getElementById("tabelGizi").innerHTML = `
+          <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${
+            makanan.kalori
+          } kkal</td></tr>
+          <tr><td class="p-2 font-medium">Protein</td><td class="p-2">${
+            makanan.protein
+          } g</td></tr>
+          <tr><td class="p-2 font-medium">Lemak</td><td class="p-2">${
+            makanan.lemak
+          } g</td></tr>
+          <tr><td class="p-2 font-medium">Karbohidrat</td><td class="p-2">${
+            makanan.karbohidrat
+          } g</td></tr>
+          <tr><td class="p-2 font-medium">Vitamin</td><td class="p-2">${
+            makanan.vitamin || "-"
+          }</td></tr>
+        `;
 
-            // AKG (% dari 2000 kkal)
-            const persenAKG = ((makanan.kalori / 2000) * 100).toFixed(1);
-            document.getElementById(
-              "infoAKG"
-            ).textContent = `${persenAKG}% dari AKG* (berdasarkan 2000 kkal per hari)`;
+        // AKG (% dari 2000 kkal)
+        const persenAKG = ((makanan.kalori / 2000) * 100).toFixed(1);
+        document.getElementById(
+          "infoAKG"
+        ).textContent = `${persenAKG}% dari AKG* (berdasarkan 2000 kkal per hari)`;
 
-            // Pie chart
-            const total = makanan.protein + makanan.lemak + makanan.karbohidrat;
-            if (total > 0) {
-              const persenProtein = ((makanan.protein / total) * 100).toFixed(
-                0
-              );
-              const persenLemak = ((makanan.lemak / total) * 100).toFixed(0);
-              const persenKarbo = ((makanan.karbohidrat / total) * 100).toFixed(
-                0
-              );
+        // Pie chart (3 makro utama)
+        const total =
+          (makanan.protein || 0) +
+          (makanan.lemak || 0) +
+          (makanan.karbohidrat || 0);
+        if (total > 0) {
+          const persenProtein = ((makanan.protein / total) * 100).toFixed(0);
+          const persenLemak = ((makanan.lemak / total) * 100).toFixed(0);
+          const persenKarbo = ((makanan.karbohidrat / total) * 100).toFixed(0);
 
-              const pie = document.getElementById("pie-chart");
-              pie.style.background = `
-                conic-gradient(
-                  #22c55e 0% ${persenProtein}%,
-                  #f59e0b ${persenProtein}% ${
+          const pie = document.getElementById("pie-chart");
+          pie.style.background = `
+            conic-gradient(
+              #22c55e 0% ${persenProtein}%,
+              #f59e0b ${persenProtein}% ${
+            parseFloat(persenProtein) + parseFloat(persenLemak)
+          }%,
+              #3b82f6 ${
                 parseFloat(persenProtein) + parseFloat(persenLemak)
-              }%,
-                  #3b82f6 ${
-                    parseFloat(persenProtein) + parseFloat(persenLemak)
-                  }% 100%
-                )
-              `;
+              }% 100%
+            )
+          `;
 
-              document.getElementById("detailChart").innerHTML = `
-                <p>Protein: ${persenProtein}%</p>
-                <p>Lemak: ${persenLemak}%</p>
-                <p>Karbohidrat: ${persenKarbo}%</p>
-              `;
-            }
-          } else {
-            document.querySelector("main").innerHTML =
-              '<p class="text-center text-red-500">Makanan tidak ditemukan.</p>';
-          }
-        })
-        .catch((err) => {
-          console.error("Gagal load data:", err);
-        });
+          document.getElementById("detailChart").innerHTML = `
+            <p>Protein: ${persenProtein}%</p>
+            <p>Lemak: ${persenLemak}%</p>
+            <p>Karbohidrat: ${persenKarbo}%</p>
+          `;
+        }
+      } else {
+        document.querySelector("main").innerHTML =
+          '<p class="text-center text-red-500">Makanan tidak ditemukan.</p>';
+      }
     }
 
     // === ACCORDION GIZI ===
@@ -296,12 +310,10 @@ function initApp() {
                 (makanan) => `
               <div class="col-md-4 mb-3">
                 <div class="card h-100">
-                  <div class="card-body"></div>
+                  <div class="card-body">
                     <h5 class="card-title">${makanan.nama}</h5>
-                    <img src="${makanan.gambar}" class="h-5" alt="test">
-                    <p class="card-text">${
-                      makanan.deskripsi || "Klik untuk lihat detail"
-                    }</p>
+                    <img src="${makanan.gambar}" class="h-5" alt="${makanan.nama}">
+                    <p class="card-text">${makanan.deskripsi || "Klik untuk lihat detail"}</p>
                     <a href="/html/informasi.html?nama=${encodeURIComponent(
                       makanan.nama
                     )}" class="btn btn-success">Lihat Gizi</a>
@@ -317,3 +329,10 @@ function initApp() {
     }
   });
 }
+
+// ====================
+// RUN
+// ====================
+loadDataMakanan().then(() => {
+  initApp();
+});
