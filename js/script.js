@@ -14,8 +14,6 @@ function toggleMenu() {
 function checkScreen() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
   if (window.innerWidth >= 64 * rem) {
-    menu.classList.remove("hidden");
-  } else {
     menu.classList.add("hidden");
   }
 }
