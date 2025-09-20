@@ -198,7 +198,7 @@ function initApp() {
         // Bagian kanan (produk)
         document.getElementById("gambarMakanan").src = makanan.gambar;
         document.getElementById("gambarMakanan").alt = makanan.nama;
-        document.getElementById("namaMakanan").textContent = makanan.nama;
+      // document.getElementById("namaMakanan").textContent = makanan.nama;
         document.getElementById("deskripsiMakanan").textContent =
           makanan.deskripsi || "Tidak ada deskripsi.";
         document.getElementById("sajianMakanan").textContent =

@@ -58,52 +58,58 @@
   <div id="searchResults" class="border-b max-h-[calc(100vh-25em)] lg:max-h-[calc(100vh-6em)] lg:shadow-[4px_4px_0px_#000] lg:border-x overflow-auto absolute bg-white z-2 mt-3 grid w-full lg:w-fit left-0 top-13 lg:top-15 lg:left-18"></div>
 
   <!-- KONTEN -->
-  <main class="pt-24 max-w-7xl mx-auto px-4">
-    <h1 id="judulMakanan" class="text-3xl md:text-4xl font-bold text-gray-900 mb-8"></h1>
+  <main class="pt-10 max-w-7xl mx-auto px-4 mb-10">
+    <h1 id="judulMakanan" class="ibm-plex-serif-light text-4xl md:text-5xl font-bold text-gray-900 mb-4"></h1>
+    <p id="deskripsiMakanan" class="rubik-r mb-8"></p>
     <div class="grid md:grid-cols-2 gap-8">
+
     <!-- BAGIAN KIRI -->
-    <section class="bg-white p-6 rounded-2xl shadow order-2 md:order-1">
-      <h2 class="text-xl font-semibold mb-4 text-green-700">Informasi Gizi</h2>
-        <p id="sajianMakanan" class="text-sm text-gray-500 mb-4"></p>
-        <table class="w-full border border-gray-300 text-sm">
-          <tbody id="tabelGizi" class="divide-y divide-gray-300"></tbody>
-        </table>
-    <!-- AKG -->
+    <section class="bg-white order-2 md:order-1">
+      <h2 class="rubik-r text-xl font-bold">Informasi Gizi</h2>
+      <hr>
+      <p id="sajianMakanan" class="text-sm text-gray-500 mb-4"></p>
+      <table class="rubik-r w-full border border-gray-300">
+        <tbody id="tabelGizi" class="divide-y divide-gray-300"></tbody>
+      </table>
+
+      <!-- AKG -->
       <p id="infoAKG" class="text-sm text-gray-600 mt-4"></p>
-    <!-- PIE CHART -->
+
+      <!-- PIE CHART -->
       <div class="mt-6 flex flex-col items-center">
         <div id="pie-chart" class="w-40 h-40 rounded-full"></div>
           <p class="text-xs text-gray-500 mt-2">Distribusi Kalori</p>
         <div id="detailChart" class="mt-2 text-xs text-gray-600"></div>
       </div>
     </section>
+
     <!-- BAGIAN KANAN -->
-    <section class="bg-white p-6 rounded-2xl shadow flex flex-col order-1 md:order-2">
+    <section class="bg-white rounded-2xl flex flex-col order-1 md:order-2">
       <div class="flex justify-between items-start mb-4">
-        <img id="gambarMakanan" src="" alt="Gambar Makanan" class="rounded-lg w-2/3 h-64 object-contain"/>
-        <img src="https://images.seeklogo.com/logo-png/17/1/halal-mui-logo-png_seeklogo-171637.png" alt="Logo Halal" class="w-12 h-12 ml-4"/>
+        <img id="gambarMakanan" src="" alt="Gambar Makanan" class="border object-contain w-full h-64 object-contain"/>
       </div>
-        <h2 id="namaMakanan" class="text-2xl font-semibold mb-2"></h2>
-        <p id="deskripsiMakanan" class="text-gray-600 leading-relaxed mb-4"></p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-auto">
-        <div class="p-3 border rounded-lg shadow-sm text-center">
-          <p id="kaloriBox" class="font-bold text-lg text-red-500">0</p>
-          <span class="text-xs text-gray-600">Kalori</span>
+        <div class="border p-5">
+          <img src="https://images.seeklogo.com/logo-png/17/1/halal-mui-logo-png_seeklogo-171637.png" alt="Logo Halal" class="w-12 h-12"/>
         </div>
-        <div class="p-3 border rounded-lg shadow-sm text-center">
-          <p id="lemakBox" class="font-bold text-lg text-yellow-500">0 g</p>
-          <span class="text-xs text-gray-600">Lemak</span>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+        <div class="p-3 border">
+          <p id="kaloriBox" class="ibm-plex-serif-regular text-xl text-red-700">0</p>
+          <span class="rubik-r">Kalori</span>
         </div>
-        <div class="p-3 border rounded-lg shadow-sm text-center">
-          <p id="karboBox" class="font-bold text-lg text-blue-500">0 g</p>
-          <span class="text-xs text-gray-600">Karbohidrat</span>
+        <div class="p-3 border">
+          <p id="lemakBox" class="ibm-plex-serif-regular text-xl text-yellow-700">0 g</p>
+          <span class="rubik-r">Lemak</span>
         </div>
-        <div class="p-3 border rounded-lg shadow-sm text-center">
-          <p id="proteinBox" class="font-bold text-lg text-green-500">0 g</p>
-          <span class="text-xs text-gray-600">Protein</span>
+        <div class="p-3 border">
+          <p id="karboBox" class="ibm-plex-serif-regular text-xl text-blue-700">0 g</p>
+          <span class="rubik-r">Karbohidrat</span>
+        </div>
+        <div class="p-3 border">
+          <p id="proteinBox" class="ibm-plex-serif-regular text-xl text-green-700">0 g</p>
+          <span class="rubik-r">Protein</span>
         </div>
       </div>
-        <a id="sumberLink" href="#" target="_blank" class="mt-4 text-sm text-green-600 hover:underline">Lihat sumber gizi</a>
+        <a id="sumberLink" href="#" target="_blank" class="mt-4 text-sm hover:underline">Lihat sumber gizi</a>
     </section>
     </div>
   </main>

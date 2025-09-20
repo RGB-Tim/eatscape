@@ -1,6 +1,6 @@
 [
   { 
-    "nama": "Indomie Mi Goreng",
+    "nama": "Indomie® Mi Goreng",
     "sajian":"Per 1 bungkus (±80 g)",
     "gambar": "https://www.indomie.com/uploads/product/indomie-mi-goreng-special_detail_094906814.png",
     "deskripsi": "Mi instan goreng rasa original.",
@@ -13,7 +13,7 @@
     "sumber": "https://www.fatsecret.co.id/kalori-gizi/indomie/mi-goreng/1-bungkus"
   },
   {
-    "nama": "Indomie Mi Goreng Rendang",
+    "nama": "Indomie® Mi Goreng Rendang",
     "sajian":"Per 1 bungkus (±85 g).",
     "gambar": "https://www.indomie.com/uploads/product/indomie-mi-goreng-rendang-flavour_detail_114846026.png",
     "deskripsi": "Mi instan goreng rasa rendang. ",
@@ -39,7 +39,7 @@
     "sumber": "https://nilaigizi.com/gizi/detailproduk/2438/nilai-kandungan-gizi-qtela-tempe-original"
   },
   { 
-    "nama": "Chitato Rasa Sapi Panggang",
+    "nama": "Chitato® Rasa Sapi Panggang",
     "sajian":" Per 1 porsi (±20 g)",
     "gambar": "https://www.chitato.com/adminchitato/Upload/Product/20140711123037687chitato-sapipanggang.png",
     "deskripsi": "Keripik kentang bergelombang rasa sapi panggang.",
@@ -134,7 +134,7 @@
     "sumber": "https://nilaigizi.com/gizi/detailproduk/4346/Lontong"
   },
   { 
-    "nama": "Quaker Whole Rolled Oats",
+    "nama": "Quaker™ Whole Rolled Oats",
     "sajian":"Per 100 g",
     "gambar": "https://i.gojekapi.com/darkroom/gomart-public-production/v2/images/public/images/096c1150-4531-4749-981f-8e11e01b3ac8_Quaker-Rolled-Oats-800-g.jpg",
     "deskripsi": "Oat utuh gulung.",
@@ -214,7 +214,7 @@
     "sumber": "https://www.fatsecret.co.id/kalori-gizi/umum/soda?portionamount=1%2C000&portionid=419106"
   },
   {
-    "nama": "Ultra Milk UHT Full Cream (200 ml)",
+    "nama": "Ultra® Milk UHT Full Cream (200 ml)",
     "sajian":"Per 1 pak (200 ml)",
     "gambar": "https://c.alfagift.id/product/1/1_A7671640001094_20230705095807377_base.jpg",
     "deskripsi": "Susu UHT full cream.",
