@@ -59,9 +59,6 @@ function initApp() {
         $searchResults.empty();
 
         if (query.length === 0) {
-          $searchResults.html(
-            '<div class="m-5 text-gray-500">Ketik untuk mencari makanan...</div>'
-          );
           return;
         }
 
