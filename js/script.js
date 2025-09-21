@@ -76,9 +76,7 @@ function initApp() {
                   makanan.gambar
                 }" alt="${makanan.nama}">
                 <div class="py-2">
-                  <p>${
-                    makanan.nama
-                  }</p>
+                  <p>${makanan.nama}</p>
                   <p class="text-sm">${makanan.deskripsi}</p>
                 </div>
               </a>
@@ -198,7 +196,7 @@ function initApp() {
         // Bagian kanan (produk)
         document.getElementById("gambarMakanan").src = makanan.gambar;
         document.getElementById("gambarMakanan").alt = makanan.nama;
-      // document.getElementById("namaMakanan").textContent = makanan.nama;
+        // document.getElementById("namaMakanan").textContent = makanan.nama;
         document.getElementById("deskripsiMakanan").textContent =
           makanan.deskripsi || "Tidak ada deskripsi.";
         document.getElementById("sajianMakanan").textContent =
@@ -209,8 +207,7 @@ function initApp() {
           makanan.kalori + " kkal";
         document.getElementById("proteinBox").textContent =
           makanan.protein + " g";
-        document.getElementById("lemakBox").textContent =
-          makanan.lemak + " g";
+        document.getElementById("lemakBox").textContent = makanan.lemak + " g";
         document.getElementById("karboBox").textContent =
           makanan.karbohidrat + " g";
 
@@ -236,11 +233,14 @@ function initApp() {
           }</td></tr>
         `;
 
-        // AKG (% dari 2000 kkal)
+        // Hitung AKG
         const persenAKG = ((makanan.kalori / 2000) * 100).toFixed(1);
         document.getElementById(
           "infoAKG"
         ).textContent = `${persenAKG}% dari AKG* (berdasarkan 2000 kkal per hari)`;
+
+        // Update progress bar
+        document.getElementById("progressAKG").style.width = `${persenAKG}%`;
 
         // Pie chart (3 makro utama)
         const total =
@@ -255,10 +255,9 @@ function initApp() {
           const pie = document.getElementById("pie-chart");
           pie.style.background = `
             conic-gradient(
-              #22c55e 0% ${persenProtein}%,
-              #f59e0b ${persenProtein}% ${
-            parseFloat(persenProtein) + parseFloat(persenLemak)
-          }%,
+              #ef4444 0% ${persenProtein}%,
+              #f59e0b ${persenProtein}% 
+            ${parseFloat(persenProtein) + parseFloat(persenLemak)}%,
               #3b82f6 ${
                 parseFloat(persenProtein) + parseFloat(persenLemak)
               }% 100%
@@ -266,9 +265,9 @@ function initApp() {
           `;
 
           document.getElementById("detailChart").innerHTML = `
-            <p>Protein: ${persenProtein}%</p>
-            <p>Lemak: ${persenLemak}%</p>
-            <p>Karbohidrat: ${persenKarbo}%</p>
+            <p><span class="inline-block w-3 h-3 bg-red-500 rounded-sm mr-2"></span> Protein: ${persenProtein}%</p>
+            <p><span class="inline-block w-3 h-3 bg-amber-500 rounded-sm mr-2"></span> Lemak: ${persenLemak}%</p>
+            <p><span class="inline-block w-3 h-3 bg-blue-500 rounded-sm mr-2"></span> Karbohidrat: ${persenKarbo}%</p>
           `;
         }
       } else {
@@ -307,8 +306,12 @@ function initApp() {
                 <div class="card h-100">
                   <div class="card-body">
                     <h5 class="card-title">${makanan.nama}</h5>
-                    <img src="${makanan.gambar}" class="h-5" alt="${makanan.nama}">
-                    <p class="card-text">${makanan.deskripsi || "Klik untuk lihat detail"}</p>
+                    <img src="${makanan.gambar}" class="h-5" alt="${
+                  makanan.nama
+                }">
+                    <p class="card-text">${
+                      makanan.deskripsi || "Klik untuk lihat detail"
+                    }</p>
                     <a href="/html/informasi.html?nama=${encodeURIComponent(
                       makanan.nama
                     )}" class="btn btn-success">Lihat Gizi</a>
