@@ -107,3 +107,19 @@ tr:nth-child(even) {
 table {
   border: #000000;
 }
+
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in; 
+}
+
+body.show {
+  opacity: 1;
+}
+
+.column {
+    max-width: 1280px;
+    columns: 3 24rem;
+    column-gap: 0.5rem;
+    font-size: 1.2rem;
+}

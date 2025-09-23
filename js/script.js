@@ -27,6 +27,14 @@ window.addEventListener("resize", checkScreen);
 // ====================
 let dataMakanan = [];
 
+
+const body = document.getElementById('body');
+
+window.addEventListener('load', function () {
+  document.body.classList.add('show');
+})
+
+
 // Load data makanan dari JSON
 function loadDataMakanan() {
   return fetch("/js/data-makanan.json")
