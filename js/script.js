@@ -342,7 +342,7 @@ function initApp() {
 loadDataMakanan().then(() => {
   initApp();
   // === COMPARE ===
-if (window.location.pathname.includes("html/compare.html")) {
+if (window.location.pathname.includes("html/bandingkan.html")) {
   document.getElementById("yearNow").textContent = new Date().getFullYear();
 
   // --- dropdown ---
@@ -488,11 +488,14 @@ if (window.location.pathname.includes("html/compare.html")) {
   });
 
   // --- tombol kembali ---
-  // $("#backToInput").on("click", function () {
-  //   $("#compareOutputSection").addClass("hidden");
-  //   $("#compareInputSection").removeClass("hidden");
-  // });
+$("#backToInput").on("click", function () {
+  // hapus localStorage
+  localStorage.removeItem("lastCompare");
 
+  // sembunyikan hasil, tampilkan input
+  $("#compareOutputSection").addClass("hidden");
+  $("#compareInputSection").removeClass("hidden");
+});
   const saved = loadCompareFromStorage();
   if (saved.length === 2) {
     $("#food1").val(saved[0]);
