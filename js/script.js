@@ -453,7 +453,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     const html = `
       ${createCard(food1)}
       <div class="hidden md:flex items-center justify-center">
-        <span class="text-8xl font-extrabold text-gray-700 mt-10">VS</span>
+        <span class="text-8xl ibm-plex-serif-light text-gray-700 mt-10">VS</span>
       </div>
       ${createCard(food2)}
     `;
