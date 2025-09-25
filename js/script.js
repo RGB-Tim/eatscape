@@ -343,9 +343,8 @@ loadDataMakanan().then(() => {
   initApp();
   // === COMPARE ===
 if (window.location.pathname.includes("html/bandingkan.html")) {
-  document.getElementById("yearNow").textContent = new Date().getFullYear();
 
-  // --- dropdown autocomplete ---
+  // --- dropdown ---
   function setupCompareAutocomplete(inputId, suggestId) {
     const $input = $(inputId);
     const $suggest = $(suggestId);
@@ -355,17 +354,12 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       $suggest.empty().addClass("hidden");
       if (!kw) return;
 
-      const filtered = (dataMakanan || []).filter(m =>
-        m.nama.toLowerCase().includes(kw)
-      );
+      const filtered = dataMakanan.filter(m => m.nama.toLowerCase().includes(kw));
       if (!filtered.length) return;
 
       filtered.forEach(item => {
-        const $opt = $(
-          `<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`
-        );
-        // pakai mousedown supaya jalan sebelum blur
-        $opt.on("mousedown", () => {
+        const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
+        $opt.on("click", () => {
           $input.val(item.nama);
           $suggest.empty().addClass("hidden");
         });
@@ -374,9 +368,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       $suggest.removeClass("hidden");
     });
 
-    $input.on("blur", () =>
-      setTimeout(() => $suggest.addClass("hidden"), 150)
-    );
+    $input.on("blur", () => setTimeout(() => $suggest.addClass("hidden"), 150));
   }
 
   setupCompareAutocomplete("#food1", "#suggest1");
@@ -384,10 +376,11 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
 
   // --- field map ---
   const FIELD_MAP = [
-    { key: "kalori", label: "Kalori", max: 500, unit: "kkal" },
-    { key: "lemak", label: "Lemak", max: 100, unit: "g" },
-    { key: "karbohidrat", label: "Karbohidrat", max: 100, unit: "g" },
-    { key: "protein", label: "Protein", max: 50, unit: "g" },
+    { key: "kalori",      label: "Kalori",      max: 500,  unit: "kkal" },
+    { key: "lemak",       label: "Lemak",       max: 100,  unit: "g"    },
+    { key: "karbohidrat", label: "Karbohidrat", max: 100,  unit: "g"    },
+    // { key: "gula",        label: "Gula",        max: 100,  unit: "g"    },
+    { key: "protein",     label: "Protein",     max: 50,   unit: "g"    },
   ];
 
   function saveCompareToStorage(names) {
@@ -405,43 +398,48 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
   }
 
   // --- card makanan ---
-  function createCard(food) {
-    const bars = FIELD_MAP.map(f => {
-      const val = Number(food[f.key] ?? 0);
-      return `
-        <div class="mb-4">
-          <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
-          <div class="w-full h-7 bg-gray-200 rounded-lg overflow-hidden">
-            <div class="h-full w-0 flex items-center justify-center text-white text-xs font-semibold rounded-lg
-                        bg-gradient-to-r from-blue-700 to-blue-500 transition-all duration-1000 ease-out"
-                 data-value="${val}" data-max="${f.max}">
-              ${val ? `${val} ${f.unit}` : "-"}
-            </div>
-          </div>
-        </div>`;
-    }).join("");
+ function createCard(food) {
+  const nat = (food.natrium ?? food.sodium);
+  const safeFood = { ...food, sodium: nat };
 
-    let vitaminHTML = "";
-    if (food.vitamin) {
-      vitaminHTML = `
-        <div class="mt-4">
-          <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
-          <p class="text-sm text-gray-600">${food.vitamin}</p>
-        </div>
-      `;
-    }
-
+  // progress bars untuk FIELD_MAP
+  const bars = FIELD_MAP.map(f => {
+    const val = Number(safeFood[f.key] ?? 0);
     return `
-      <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition p-6 flex flex-col">
-        <h3 class="text-xl font-bold text-center text-blue-700 mb-4">${food.nama}</h3>
-        ${bars}
-        ${vitaminHTML}
-        <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
-           class="mt-5 block w-full text-center px-4 py-2 rounded-lg bg-blue-700 text-white font-medium hover:bg-blue-800 transition">
-          Cek Makanan
-        </a>
+      <div class="mb-4">
+        <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
+        <div class="w-full h-7 bg-gray-200 rounded-lg overflow-hidden">
+          <div class="h-full w-0 flex items-center justify-center text-white text-xs font-semibold rounded-lg
+                      bg-gradient-to-r from-blue-700 to-blue-500 transition-all duration-1000 ease-out"
+               data-value="${val}" data-max="${f.max}">
+            ${val ? `${val} ${f.unit}` : "-"}
+          </div>
+        </div>
       </div>`;
+  }).join("");
+
+  // vitamin (langsung teks, tanpa bar)
+  let vitaminHTML = "";
+  if (food.vitamin) {
+    vitaminHTML = `
+      <div class="mt-4">
+        <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
+        <p class="text-sm text-gray-600">${food.vitamin}</p>
+      </div>
+    `;
   }
+
+  return `
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition p-6 flex flex-col">
+      <h3 class="text-xl font-bold text-center text-blue-700 mb-4">${food.nama}</h3>
+      ${bars}
+      ${vitaminHTML}
+      <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
+         class="mt-5 block w-full text-center px-4 py-2 rounded-lg bg-blue-700 text-white font-medium hover:bg-blue-800 transition">
+        Cek Makanan
+      </a>
+    </div>`;
+}
 
   function renderCompare(nama1, nama2) {
     const food1 = dataMakanan.find(m => m.nama.toLowerCase() === nama1.toLowerCase());
@@ -464,12 +462,12 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     $("#compareInputSection").addClass("hidden");
     $("#compareOutputSection").removeClass("hidden");
 
-    // animasi progress
+    // animasi progresssssss
     $("#compareContent").find("[data-value]").each(function () {
       const $bar = $(this);
       const value = parseFloat($bar.data("value")) || 0;
-      const max = parseFloat($bar.data("max")) || 100;
-      const pct = Math.min(100, Math.max(0, (value / max) * 100));
+      const max   = parseFloat($bar.data("max"))   || 100;
+      const pct   = Math.min(100, Math.max(0, (value / max) * 100));
       setTimeout(() => $bar.css("width", pct + "%"), 200);
     });
   }
@@ -484,18 +482,19 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       return;
     }
 
-    saveCompareToStorage([nama1, nama2]);
+    saveCompareToStorage([nama1, nama2]); 
     renderCompare(nama1, nama2);
   });
 
   // --- tombol kembali ---
-  $("#backToInput").on("click", function () {
-    $("#compareOutputSection").addClass("hidden");
-    $("#compareInputSection").removeClass("hidden");
-    // tetap simpan di localStorage
-  });
+$("#backToInput").on("click", function () {
+  // hapus localStorage
+  localStorage.removeItem("lastCompare");
 
-  // --- restore dari storage ---
+  // sembunyikan hasil, tampilkan input
+  $("#compareOutputSection").addClass("hidden");
+  $("#compareInputSection").removeClass("hidden");
+});
   const saved = loadCompareFromStorage();
   if (saved.length === 2) {
     $("#food1").val(saved[0]);
@@ -520,5 +519,4 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     $grid.html(items);
   }
 }
-
 });
