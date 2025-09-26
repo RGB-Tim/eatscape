@@ -255,15 +255,27 @@ function initApp() {
           const persenKarbo = ((makanan.karbohidrat / total) * 100).toFixed(0);
 
           const pie = document.getElementById("pie-chart");
-          pie.style.background = `
-            conic-gradient(
-              #ef4444 0% ${persenProtein}%,
-              #f59e0b ${persenProtein}% 
-            ${parseFloat(persenProtein) + parseFloat(persenLemak)}%,
-              #3b82f6 ${parseFloat(persenProtein) + parseFloat(persenLemak)
-            }% 100%
-            )
-          `;
+
+          // Animasi increment
+          let progress = 0;
+          const anim = setInterval(() => {
+            if (progress >= 100) {
+              clearInterval(anim);
+            } else {
+              progress += 1.5;
+              const proteinEnd = (persenProtein / 100) * progress;
+              const lemakEnd = (persenLemak / 100) * progress;
+              const karboEnd = (persenKarbo / 100) * progress;
+
+              pie.style.background = `
+              conic-gradient(
+                #ef4444 0% ${proteinEnd}%,
+                #f59e0b ${proteinEnd}% ${proteinEnd + lemakEnd}%,
+                #3b82f6 ${proteinEnd + lemakEnd}% ${proteinEnd + lemakEnd + karboEnd}%
+              )
+            `;
+            }
+          }, 30);
 
           document.getElementById("detailChart").innerHTML = `
             <p><span class="inline-block w-3 h-3 bg-red-500 rounded-sm mr-2"></span> Protein: ${persenProtein}%</p>
