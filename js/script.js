@@ -78,11 +78,10 @@ function initApp() {
           hasil.forEach((makanan) => {
             const card = `
               <a href="/html/informasi.html?nama=${encodeURIComponent(
-                makanan.nama
-              )}" class="rubik-r m-2 flex gap-2">
-                <img class="h-14 w-14 object-cover" src="${
-                  makanan.gambar
-                }" alt="${makanan.nama}">
+              makanan.nama
+            )}" class="rubik-r m-2 flex gap-2">
+                <img class="h-14 w-14 object-cover" src="${makanan.gambar
+              }" alt="${makanan.nama}">
                 <div class="py-2">
                   <p>${makanan.nama}</p>
                   <p class="text-sm">${makanan.deskripsi}</p>
@@ -164,20 +163,20 @@ function initApp() {
         </thead>
         <tbody>
           <tr><td>Kalori</td>${data
-            .map((m) => `<td>${m.kalori} kkal</td>`)
-            .join("")}</tr>
+          .map((m) => `<td>${m.kalori} kkal</td>`)
+          .join("")}</tr>
           <tr><td>Protein</td>${data
-            .map((m) => `<td>${m.protein} g</td>`)
-            .join("")}</tr>
+          .map((m) => `<td>${m.protein} g</td>`)
+          .join("")}</tr>
           <tr><td>Lemak</td>${data
-            .map((m) => `<td>${m.lemak} g</td>`)
-            .join("")}</tr>
+          .map((m) => `<td>${m.lemak} g</td>`)
+          .join("")}</tr>
           <tr><td>Karbohidrat</td>${data
-            .map((m) => `<td>${m.karbohidrat} g</td>`)
-            .join("")}</tr>
+          .map((m) => `<td>${m.karbohidrat} g</td>`)
+          .join("")}</tr>
           <tr><td>Vitamin</td>${data
-            .map((m) => `<td>${m.vitamin || "-"}</td>`)
-            .join("")}</tr>
+          .map((m) => `<td>${m.vitamin || "-"}</td>`)
+          .join("")}</tr>
         </tbody>
       </table>`;
 
@@ -224,20 +223,15 @@ function initApp() {
 
         // Tabel gizi (pakai garis per baris)
         document.getElementById("tabelGizi").innerHTML = `
-          <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${
-            makanan.kalori
+          <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${makanan.kalori
           } kkal</td></tr>
-          <tr><td class="p-2 font-medium">Protein</td><td class="p-2">${
-            makanan.protein
+          <tr><td class="p-2 font-medium">Protein</td><td class="p-2">${makanan.protein
           } g</td></tr>
-          <tr><td class="p-2 font-medium">Lemak</td><td class="p-2">${
-            makanan.lemak
+          <tr><td class="p-2 font-medium">Lemak</td><td class="p-2">${makanan.lemak
           } g</td></tr>
-          <tr><td class="p-2 font-medium">Karbohidrat</td><td class="p-2">${
-            makanan.karbohidrat
+          <tr><td class="p-2 font-medium">Karbohidrat</td><td class="p-2">${makanan.karbohidrat
           } g</td></tr>
-          <tr><td class="p-2 font-medium">Vitamin</td><td class="p-2">${
-            makanan.vitamin || "-"
+          <tr><td class="p-2 font-medium">Vitamin</td><td class="p-2">${makanan.vitamin || "-"
           }</td></tr>
         `;
 
@@ -266,9 +260,8 @@ function initApp() {
               #ef4444 0% ${persenProtein}%,
               #f59e0b ${persenProtein}% 
             ${parseFloat(persenProtein) + parseFloat(persenLemak)}%,
-              #3b82f6 ${
-                parseFloat(persenProtein) + parseFloat(persenLemak)
-              }% 100%
+              #3b82f6 ${parseFloat(persenProtein) + parseFloat(persenLemak)
+            }% 100%
             )
           `;
 
@@ -308,27 +301,25 @@ function initApp() {
           <h4>${namaKategori}</h4>
           <div class="row">
             ${daftarMakanan
-              .map(
-                (makanan) => `
+          .map(
+            (makanan) => `
               <div class="col-md-4 mb-3">
                 <div class="card h-100">
                   <div class="card-body">
                     <h5 class="card-title">${makanan.nama}</h5>
-                    <img src="${makanan.gambar}" class="h-5" alt="${
-                  makanan.nama
-                }">
-                    <p class="card-text">${
-                      makanan.deskripsi || "Klik untuk lihat detail"
-                    }</p>
+                    <img src="${makanan.gambar}" class="h-5" alt="${makanan.nama
+              }">
+                    <p class="card-text">${makanan.deskripsi || "Klik untuk lihat detail"
+              }</p>
                     <a href="/html/informasi.html?nama=${encodeURIComponent(
-                      makanan.nama
-                    )}" class="btn btn-success">Lihat Gizi</a>
+                makanan.nama
+              )}" class="btn btn-success">Lihat Gizi</a>
                   </div>
                 </div>
               </div>
             `
-              )
-              .join("")}
+          )
+          .join("")}
           </div>
         </div>
       `);
@@ -342,66 +333,66 @@ function initApp() {
 loadDataMakanan().then(() => {
   initApp();
   // === COMPARE ===
-if (window.location.pathname.includes("html/bandingkan.html")) {
+  if (window.location.pathname.includes("html/bandingkan.html")) {
 
-  // --- dropdown ---
-  function setupCompareAutocomplete(inputId, suggestId) {
-    const $input = $(inputId);
-    const $suggest = $(suggestId);
+    // --- dropdown ---
+    function setupCompareAutocomplete(inputId, suggestId) {
+      const $input = $(inputId);
+      const $suggest = $(suggestId);
 
-    $input.on("input", function () {
-      const kw = $input.val().toLowerCase().trim();
-      $suggest.empty().addClass("hidden");
-      if (!kw) return;
+      $input.on("input", function () {
+        const kw = $input.val().toLowerCase().trim();
+        $suggest.empty().addClass("hidden");
+        if (!kw) return;
 
-      const filtered = dataMakanan.filter(m => m.nama.toLowerCase().includes(kw));
-      if (!filtered.length) return;
+        const filtered = dataMakanan.filter(m => m.nama.toLowerCase().includes(kw));
+        if (!filtered.length) return;
 
-      filtered.forEach(item => {
-        const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
-        $opt.on("click", () => {
-          $input.val(item.nama);
-          $suggest.empty().addClass("hidden");
+        filtered.forEach(item => {
+          const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
+          $opt.on("click", () => {
+            $input.val(item.nama);
+            $suggest.empty().addClass("hidden");
+          });
+          $suggest.append($opt);
         });
-        $suggest.append($opt);
+        $suggest.removeClass("hidden");
       });
-      $suggest.removeClass("hidden");
-    });
 
-    $input.on("blur", () => setTimeout(() => $suggest.addClass("hidden"), 150));
-  }
-
-  setupCompareAutocomplete("#food1", "#suggest1");
-  setupCompareAutocomplete("#food2", "#suggest2");
-
-  // --- field map ---
-  const FIELD_MAP = [
-    { key: "kalori",      label: "Kalori",      max: 500,  unit: "kkal" },
-    { key: "lemak",       label: "Lemak",       max: 100,  unit: "g"    },
-    { key: "karbohidrat", label: "Karbohidrat", max: 100,  unit: "g"    },
-    // { key: "gula",        label: "Gula",        max: 100,  unit: "g"    },
-    { key: "protein",     label: "Protein",     max: 50,   unit: "g"    },
-  ];
-
-  function saveCompareToStorage(names) {
-    localStorage.setItem("compareFoods", JSON.stringify(names));
-  }
-
-  function loadCompareFromStorage() {
-    try {
-      const raw = localStorage.getItem("compareFoods");
-      if (!raw) return [];
-      return JSON.parse(raw);
-    } catch {
-      return [];
+      $input.on("blur", () => setTimeout(() => $suggest.addClass("hidden"), 150));
     }
-  }
 
-  // --- card makanan ---
-  function createCard(food) {
-  const bars = FIELD_MAP.map(f => {
-    const val = Number(food[f.key] ?? 0);
-    return `
+    setupCompareAutocomplete("#food1", "#suggest1");
+    setupCompareAutocomplete("#food2", "#suggest2");
+
+    // --- field map ---
+    const FIELD_MAP = [
+      { key: "kalori", label: "Kalori", max: 500, unit: "kkal" },
+      { key: "lemak", label: "Lemak", max: 100, unit: "g" },
+      { key: "karbohidrat", label: "Karbohidrat", max: 100, unit: "g" },
+      // { key: "gula",        label: "Gula",        max: 100,  unit: "g"    },
+      { key: "protein", label: "Protein", max: 50, unit: "g" },
+    ];
+
+    function saveCompareToStorage(names) {
+      localStorage.setItem("compareFoods", JSON.stringify(names));
+    }
+
+    function loadCompareFromStorage() {
+      try {
+        const raw = localStorage.getItem("compareFoods");
+        if (!raw) return [];
+        return JSON.parse(raw);
+      } catch {
+        return [];
+      }
+    }
+
+    // --- card makanan ---
+    function createCard(food) {
+      const bars = FIELD_MAP.map(f => {
+        const val = Number(food[f.key] ?? 0);
+        return `
       <div class="mb-4">
         <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
         <div class="w-full h-7 bg-gray-200 rounded-lg overflow-hidden">
@@ -412,20 +403,20 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
           </div>
         </div>
       </div>`;
-  }).join("");
+      }).join("");
 
-  // vitamin (langsung teks, tanpa bar)
-  let vitaminHTML = "";
-  if (food.vitamin) {
-    vitaminHTML = `
+      // vitamin (langsung teks, tanpa bar)
+      let vitaminHTML = "";
+      if (food.vitamin) {
+        vitaminHTML = `
       <div class="mt-4">
         <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
         <p class="text-sm text-gray-600">${food.vitamin}</p>
       </div>
     `;
-  }
+      }
 
-  return `
+      return `
     <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition p-6 flex flex-col">
       
       <!-- Gambar makanan -->
@@ -450,73 +441,73 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
         Cek Makanan
       </a>
     </div>`;
-}
-
-  function renderCompare(nama1, nama2) {
-    const food1 = dataMakanan.find(m => m.nama.toLowerCase() === nama1.toLowerCase());
-    const food2 = dataMakanan.find(m => m.nama.toLowerCase() === nama2.toLowerCase());
-
-    if (!food1 || !food2) {
-      alert("Makanan tidak ditemukan dalam database JSON.");
-      return;
     }
 
-    const html = `
+    function renderCompare(nama1, nama2) {
+      const food1 = dataMakanan.find(m => m.nama.toLowerCase() === nama1.toLowerCase());
+      const food2 = dataMakanan.find(m => m.nama.toLowerCase() === nama2.toLowerCase());
+
+      if (!food1 || !food2) {
+        alert("Makanan tidak ditemukan dalam database JSON.");
+        return;
+      }
+
+      const html = `
       ${createCard(food1)}
       <div class="hidden md:flex items-center justify-center">
         <span class="text-8xl font-extrabold text-black-700 mt-10">VS</span>
       </div>
       ${createCard(food2)}
     `;
-    $("#compareContent").html(html);
+      $("#compareContent").html(html);
 
-    $("#compareInputSection").addClass("hidden");
-    $("#compareOutputSection").removeClass("hidden");
+      $("#compareInputSection").addClass("hidden");
+      $("#compareOutputSection").removeClass("hidden");
 
-    // animasi progresssssss
-    $("#compareContent").find("[data-value]").each(function () {
-      const $bar = $(this);
-      const value = parseFloat($bar.data("value")) || 0;
-      const max   = parseFloat($bar.data("max"))   || 100;
-      const pct   = Math.min(100, Math.max(0, (value / max) * 100));
-      setTimeout(() => $bar.css("width", pct + "%"), 200);
-    });
-  }
-
-  // --- tombol bandingkan ---
-  $("#compareBtn").on("click", function () {
-    const nama1 = $("#food1").val().trim();
-    const nama2 = $("#food2").val().trim();
-
-    if (!nama1 || !nama2) {
-      alert("Makanan yang dibandingkan minimal 2.");
-      return;
+      // animasi progresssssss
+      $("#compareContent").find("[data-value]").each(function () {
+        const $bar = $(this);
+        const value = parseFloat($bar.data("value")) || 0;
+        const max = parseFloat($bar.data("max")) || 100;
+        const pct = Math.min(100, Math.max(0, (value / max) * 100));
+        setTimeout(() => $bar.css("width", pct + "%"), 200);
+      });
     }
 
-    saveCompareToStorage([nama1, nama2]); 
-    renderCompare(nama1, nama2);
-  });
+    // --- tombol bandingkan ---
+    $("#compareBtn").on("click", function () {
+      const nama1 = $("#food1").val().trim();
+      const nama2 = $("#food2").val().trim();
 
-  // --- tombol kembali ---
-$("#backToInput").on("click", function () {
-  // hapus localStorage
-  localStorage.removeItem("lastCompare");
+      if (!nama1 || !nama2) {
+        alert("Makanan yang dibandingkan minimal 2.");
+        return;
+      }
 
-  // sembunyikan hasil, tampilkan input
-  $("#compareOutputSection").addClass("hidden");
-  $("#compareInputSection").removeClass("hidden");
-});
-  const saved = loadCompareFromStorage();
-  if (saved.length === 2) {
-    $("#food1").val(saved[0]);
-    $("#food2").val(saved[1]);
-    renderCompare(saved[0], saved[1]);
-  }
+      saveCompareToStorage([nama1, nama2]);
+      renderCompare(nama1, nama2);
+    });
 
-  // --- grid rekomendasi ---
-  const $grid = $("#foodGrid");
-  if ($grid.length && Array.isArray(dataMakanan)) {
-    const items = dataMakanan.slice(0, 8).map(m => `
+    // --- tombol kembali ---
+    $("#backToInput").on("click", function () {
+      // hapus localStorage
+      localStorage.removeItem("lastCompare");
+
+      // sembunyikan hasil, tampilkan input
+      $("#compareOutputSection").addClass("hidden");
+      $("#compareInputSection").removeClass("hidden");
+    });
+    const saved = loadCompareFromStorage();
+    if (saved.length === 2) {
+      $("#food1").val(saved[0]);
+      $("#food2").val(saved[1]);
+      renderCompare(saved[0], saved[1]);
+    }
+
+    // --- grid rekomendasi ---
+    const $grid = $("#foodGrid");
+    if ($grid.length && Array.isArray(dataMakanan)) {
+      const items = dataMakanan.slice(0, 8).map(m => `
       <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-4 flex flex-col">
         <img src="${m.gambar}" alt="${m.nama}" class="w-full h-32 object-contain mb-3">
         <h4 class="font-semibold text-gray-800 line-clamp-2 h-12">${m.nama}</h4>
@@ -527,7 +518,7 @@ $("#backToInput").on("click", function () {
         </a>
       </div>
     `).join("");
-    $grid.html(items);
+      $grid.html(items);
+    }
   }
-}
 });
