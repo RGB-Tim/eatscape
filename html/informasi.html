@@ -9,8 +9,11 @@
   <link rel="icon" type="image/x-icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <!-- ini bagian Scripts ygy -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
@@ -20,42 +23,65 @@
 
 <body>
   <!-- NAVBAR, MOBILE: h-16 | DESKTOP: h-18 -->
-  <nav class="mx-auto fixed z-4 top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
+  <nav
+    class="mx-auto fixed z-4 top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
     <div class="flex items-center flex-1 items-stretch">
       <div class="flex lg:w-18 lg:h-18 w-16 h-16 justify-center items-center">
-        <a href="../index.html"><img src="../images/logo.svg" alt="Eatscape" class="h-8 w-auto"/></a>
+        <a href="../index.html"><img src="../images/logo.svg" alt="Eatscape" class="h-8 w-auto" /></a>
       </div>
       <div class="flex items-center border-l grow">
-        <svg class="ml-3 hidden lg:flex" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-        <input type="text" id="searchInput" class="rubik-r ml-3 flex-grow min-w-10 py-3 focus:shadow-none focus:outline-none" placeholder="Cari makanan" />
+        <svg class="ml-3 hidden lg:flex" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+          width="24px" fill="#000000">
+          <path
+            d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+        </svg>
+        <input type="text" id="searchInput"
+          class="rubik-r ml-3 flex-grow min-w-10 py-3 focus:shadow-none focus:outline-none"
+          placeholder="Cari makanan" />
       </div>
     </div>
 
     <!-- FULL WIDTH MENU -->
     <div class="flex">
-      <a href="../index.html" aria-current="page" class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">BERANDA</a>
+      <a href="../index.html" aria-current="page"
+        class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">BERANDA</a>
       <a href="#" aria-current="page" class="rubik-r hidden px-6 lg:flex border-l text-sm items-center">APLIKASI</a>
-      <a href="bandingkan.html" aria-current="page" class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">PERBANDINGAN</a>
-      <a href="tentang.html" aria-current="page" class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">TENTANG</a>
+      <a href="bandingkan.html" aria-current="page"
+        class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">PERBANDINGAN</a>
+      <a href="tentang.html" aria-current="page"
+        class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">TENTANG</a>
     </div>
 
     <!-- SMALL WIDTH MENU -->
     <div class="flex">
-      <button href="html/gizi.html" aria-current="page" onclick="toggleMenu()" class="cursor-pointer flex items-center justify-center w-16 h-16 lg:hidden border-l text-sm font-medium">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+      <button href="html/gizi.html" aria-current="page" onclick="toggleMenu()"
+        class="cursor-pointer flex items-center justify-center w-16 h-16 lg:hidden border-l text-sm font-medium">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE MENU -->
   <div id="menu" class="grid w-full divide-y-1 border-b hidden">
-    <a href="../index.html" aria-current="page" class="rubik-r justify-between gap-5 flex h-15 w-full pl-4 pl-8 overflow-hidden text-sm items-center">BERANDA <img class="rotate-10" src="../images/home.svg" alt="logo beranda"></a>
-    <a href="#" aria-current="page" class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">LAYANAN API <img class="rotate-10" src="../images/api.svg" alt="logo layanan api"></a>
-    <a href="bandingkan.html" aria-current="page" class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 pr-2 text-sm overflow-hidden items-center">PERBANDINGAN<img class="h-20 w-20 rotate-10" src="../images/compare.svg" alt="logo perbandingan"></a>
-    <a href="tentang.html" aria-current="page" class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">TENTANG <img class="rotate-10" src="../images/about.svg" alt="logo tentang"></a>
+    <a href="../index.html" aria-current="page"
+      class="rubik-r justify-between gap-5 flex h-15 w-full pl-4 pl-8 overflow-hidden text-sm items-center">BERANDA <img
+        class="rotate-10" src="../images/home.svg" alt="logo beranda"></a>
+    <a href="#" aria-current="page"
+      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">LAYANAN API
+      <img class="rotate-10" src="../images/api.svg" alt="logo layanan api"></a>
+    <a href="bandingkan.html" aria-current="page"
+      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 pr-2 text-sm overflow-hidden items-center">PERBANDINGAN<img
+        class="h-20 w-20 rotate-10" src="../images/compare.svg" alt="logo perbandingan"></a>
+    <a href="tentang.html" aria-current="page"
+      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">TENTANG <img
+        class="rotate-10" src="../images/about.svg" alt="logo tentang"></a>
   </div>
 
-  <div id="searchResults" class="border-b max-h-[calc(100vh-25em)] lg:max-h-[calc(100vh-6em)] lg:shadow-[4px_4px_0px_#000] lg:border-x overflow-auto absolute bg-white z-2 mt-3 grid w-full lg:w-fit left-0 top-13 lg:top-15 lg:left-18"></div>
+  <div id="searchResults"
+    class="border-b max-h-[calc(100vh-25em)] lg:max-h-[calc(100vh-6em)] lg:shadow-[4px_4px_0px_#000] lg:border-x overflow-auto absolute bg-white z-2 mt-3 grid w-full lg:w-fit left-0 top-13 lg:top-15 lg:left-18">
+  </div>
 
   <!-- KONTEN -->
   <main class="pt-10 max-w-7xl mx-auto px-4 mb-10">
@@ -63,62 +89,66 @@
     <p id="deskripsiMakanan" class="rubik-r mb-8"></p>
     <div class="grid md:grid-cols-2 gap-8">
 
-    <!-- BAGIAN KIRI -->
-    <section class="bg-white order-2 md:order-1">
-      <h2 class="rubik-r text-xl font-bold">Informasi Gizi</h2>
-      <hr>
-      <p id="sajianMakanan" class="text-sm text-gray-500 mb-4"></p>
-      <table class="rubik-r w-full border border-gray-300">
-        <tbody id="tabelGizi" class="divide-y divide-gray-300"></tbody>
-      </table>
+      <!-- BAGIAN KIRI -->
+      <section class="bg-white order-2 md:order-1">
+        <h2 class="rubik-r text-xl font-bold">Informasi Gizi</h2>
+        <hr>
+        <p id="sajianMakanan" class="text-sm text-gray-500 mb-4"></p>
+        <table class="rubik-r w-full border border-gray-300">
+          <tbody id="tabelGizi" class="divide-y divide-gray-300"></tbody>
+        </table>
 
-      <!-- AKG -->
-      <div class="mt-4 p-4 bg-gray-50 rounded-xl shadow-md">
-      <h3 class="text-lg font-semibold mb-2">Asupan Kalori Harian</h3>
-      <p id="infoAKG" class="text-sm text-gray-600"></p>
+        <!-- AKG -->
+        <div class="mt-4 p-4 bg-gray-50 rounded-xl shadow-md">
+          <h3 class="text-lg font-semibold mb-2">Asupan Kalori Harian</h3>
+          <p id="infoAKG" class="text-sm text-gray-600"></p>
 
-      <!-- Progress Bar AKG -->
-      <div class="w-full bg-gray-200 rounded-full h-4 mt-2">
-      <div id="progressAKG" class="bg-blue-500 h-4 rounded-full"></div>
-      </div>
-      </div>
+          <!-- Progress Bar AKG -->
+          <div class="w-full bg-gray-200 rounded-full h-4 mt-2">
+            <div id="progressAKG" class="bg-blue-500 h-4 rounded-full"></div>
+          </div>
+        </div>
 
-      <!-- PIE CHART -->
-      <div class="mt-6 flex flex-col items-center">
-        <div id="pie-chart" class="w-40 h-40 rounded-full"></div>
+        <!-- PIE CHART -->
+        <div class="mt-6 flex flex-col items-center">
+          <div id="pie-chart" class="w-40 h-40 rounded-full"></div>
           <p class="text-xs text-gray-500 mt-2">Distribusi Kalori</p>
-        <div id="detailChart" class="mt-2 text-xs text-gray-600"></div>
-      </div>
-    </section>
+          <div id="detailChart" class="mt-2 text-xs text-gray-600"></div>
+        </div>
+      </section>
 
-    <!-- BAGIAN KANAN -->
-    <section class="bg-white rounded-2xl flex flex-col order-1 md:order-2">
-      <div class="flex justify-between items-start mb-4">
-        <img id="gambarMakanan" src="" alt="Gambar Makanan" class="border object-contain w-full h-64 object-contain"/>
-      </div>
-        <div class="border p-5">
-          <img src="https://images.seeklogo.com/logo-png/17/1/halal-mui-logo-png_seeklogo-171637.png" alt="Logo Halal" class="w-12 h-12"/>
+      <!-- BAGIAN KANAN -->
+      <section class="bg-white rounded-2xl flex flex-col order-1 md:order-2">
+        <div class="flex justify-between items-start mb-4">
+          <img id="gambarMakanan" src="" alt="Gambar Makanan"
+            class="border object-contain w-full h-64 object-contain" />
         </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
-        <div class="p-3 border">
-          <p id="kaloriBox" class="ibm-plex-serif-regular text-xl text-red-700">0</p>
-          <span class="rubik-r">Kalori</span>
+        <div class="border p-5 flex justify-center gap-16">
+          <img src="https://images.seeklogo.com/logo-png/17/1/halal-mui-logo-png_seeklogo-171637.png" alt="Logo Halal"
+            class="w-12 h-12" />
+          <img src="https://storage.googleapis.com/storage-ajaib-prd-platform-wp-artifact/2023/06/BPOM.webp"
+            alt="Logo BPOM" class=" h-12">
         </div>
-        <div class="p-3 border">
-          <p id="lemakBox" class="ibm-plex-serif-regular text-xl text-yellow-700">0 g</p>
-          <span class="rubik-r">Lemak</span>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+          <div class="p-3 border">
+            <p id="kaloriBox" class="ibm-plex-serif-regular text-xl text-red-700">0</p>
+            <span class="rubik-r">Kalori</span>
+          </div>
+          <div class="p-3 border">
+            <p id="lemakBox" class="ibm-plex-serif-regular text-xl text-yellow-700">0 g</p>
+            <span class="rubik-r">Lemak</span>
+          </div>
+          <div class="p-3 border">
+            <p id="karboBox" class="ibm-plex-serif-regular text-xl text-blue-700">0 g</p>
+            <span class="rubik-r">Karbohidrat</span>
+          </div>
+          <div class="p-3 border">
+            <p id="proteinBox" class="ibm-plex-serif-regular text-xl text-green-700">0 g</p>
+            <span class="rubik-r">Protein</span>
+          </div>
         </div>
-        <div class="p-3 border">
-          <p id="karboBox" class="ibm-plex-serif-regular text-xl text-blue-700">0 g</p>
-          <span class="rubik-r">Karbohidrat</span>
-        </div>
-        <div class="p-3 border">
-          <p id="proteinBox" class="ibm-plex-serif-regular text-xl text-green-700">0 g</p>
-          <span class="rubik-r">Protein</span>
-        </div>
-      </div>
         <a id="sumberLink" href="#" target="_blank" class="mt-4 text-sm hover:underline">Lihat sumber gizi</a>
-    </section>
+      </section>
     </div>
   </main>
 
@@ -166,15 +196,23 @@
   <div class="border-t">
     <div class="mx-auto max-w-7xl lg:p-0 p-5 grid lg:grid-cols-2 my-10 gap-10">
       <div>
-        <h1 class="ibm-plex-serif-regular gap-2 text-xl itmes-end mb-10">Bandingkan <span class="ibm-plex-serif-light text-5xl">Makanan</span class="h-20" alt=""> <br> dengan <span class="ibm-plex-serif-light text-5xl">makanan lain</span></h1>
+        <h1 class="ibm-plex-serif-regular gap-2 text-xl itmes-end mb-10">Bandingkan <span
+            class="ibm-plex-serif-light text-5xl">Makanan</span class="h-20" alt=""> <br> dengan <span
+            class="ibm-plex-serif-light text-5xl">makanan lain</span></h1>
         <div class="grid grid-cols-2">
-          <img src="https://images.unsplash.com/photo-1644083152667-2c78739e882a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="object-cover h-full w-full" alt="">
-          <img src="https://img-global.cpcdn.com/recipes/0820c8cf5a5e18aa/1200x630cq80/photo.jpg" class="object-cover h-full w-full" alt="">
+          <img
+            src="https://images.unsplash.com/photo-1644083152667-2c78739e882a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            class="object-cover h-full w-full" alt="">
+          <img src="https://img-global.cpcdn.com/recipes/0820c8cf5a5e18aa/1200x630cq80/photo.jpg"
+            class="object-cover h-full w-full" alt="">
         </div>
       </div>
       <div>
-          <p class="mb-10">Lorem ipsum dolor sit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et.</p>
-          <button class="bg-[#1D44A1] shadow-[4px_4px_0px_rgba(29,68,161,1)] text-white py-2 px-4">Bandingkan sekarang ></button>
+        <p class="mb-10">Lorem ipsum dolor sit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen
+          permagna accessio potest, si aliquod aeternum et.</p>
+        <button class="bg-[#1D44A1] shadow-[4px_4px_0px_rgba(29,68,161,1)] text-white py-2 px-4">Bandingkan sekarang
+          ></button>
       </div>
     </div>
   </div>
@@ -191,10 +229,13 @@
       </div>
       <p class="rubik-r text-sm">© 2025 RGB_TEAM, ALL RIGHTS RESERVED</p>
       <div class="flex gap-5 items-center">
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ega-telkom/eatscape"><img src="../images/gh.svg" alt="" class="h-5 w-5"></a>
-        <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/rgb_team1"><img src="../images/ig.svg" alt="" class="h-5 w-5"></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/Ega-telkom/eatscape"><img
+            src="../images/gh.svg" alt="" class="h-5 w-5"></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/rgb_team1"><img src="../images/ig.svg"
+            alt="" class="h-5 w-5"></a>
       </div>
     </div>
   </footer>
 </body>
+
 </html>
