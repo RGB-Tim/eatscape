@@ -382,7 +382,6 @@ loadDataMakanan().then(() => {
       { key: "kalori", label: "Kalori", max: 500, unit: "kkal" },
       { key: "lemak", label: "Lemak", max: 100, unit: "g" },
       { key: "karbohidrat", label: "Karbohidrat", max: 100, unit: "g" },
-      // { key: "gula",        label: "Gula",        max: 100,  unit: "g"    },
       { key: "protein", label: "Protein", max: 50, unit: "g" },
     ];
 
@@ -405,11 +404,10 @@ loadDataMakanan().then(() => {
       const bars = FIELD_MAP.map(f => {
         const val = Number(food[f.key] ?? 0);
         return `
-      <div class="mb-4">
+      <div class="mb-3">
         <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
-        <div class="w-full h-7 bg-gray-200 rounded-lg overflow-hidden">
-          <div class="h-full w-0 flex items-center justify-center text-white text-xs font-semibold rounded-lg
-                      bg-gradient-to-r from-blue-700 to-blue-500 transition-all duration-1000 ease-out"
+        <div class="w-full h-6 bg-gray-200 rounded-lg overflow-hidden">
+          <div class="h-full w-[70%] bg-gradient-to-r from-blue-600 to-blue-400 text-xs text-white flex items-center justify-center"
                data-value="${val}" data-max="${f.max}">
             ${val ? `${val} ${f.unit}` : "-"}
           </div>
@@ -429,17 +427,17 @@ loadDataMakanan().then(() => {
       }
 
       return `
-    <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition p-6 flex flex-col">
+    <div class="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all p-6 flex flex-col">
       
       <!-- Gambar makanan -->
       <div class="w-full flex justify-center mb-4">
         <img src="${food.gambar || '../images/no-image.png'}" 
              alt="${food.nama}" 
-             class="w-39 h-39 object-contain rounded-md shadow-sm shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+             class="w-40 h-40 object-cover rounded-lg shadow-sm transition-transform duration-300 hover:scale-105">
       </div>
 
       <!-- Nama -->
-      <h3 class="text-xl font-bold text-center text-black-700 mb-4">${food.nama}</h3>
+      <h3 class="text-lg font-bold text-gray-800 text-center mb-4">${food.nama}</h3>
 
       <!-- Bars -->
       ${bars}
@@ -449,7 +447,7 @@ loadDataMakanan().then(() => {
 
       <!-- Tombol detail -->
       <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
-         class="mt-5 block w-full text-center px-4 py-2 rounded-lg bg-blue-700 text-white font-medium hover:bg-blue-800 transition">
+         class="mt-5 block w-full text-center px-4 py-2 rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-600 transition hover:underline">
         Cek Makanan
       </a>
     </div>`;
@@ -482,7 +480,7 @@ loadDataMakanan().then(() => {
         const value = parseFloat($bar.data("value")) || 0;
         const max = parseFloat($bar.data("max")) || 100;
         const pct = Math.min(100, Math.max(0, (value / max) * 100));
-        setTimeout(() => $bar.css("width", pct + "%"), 200);
+        setTimeout(() => $bar.css("width", pct + "%"), 800);
       });
     }
 
