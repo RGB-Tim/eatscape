@@ -424,16 +424,6 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       </div>
     `;
   }
-  // vitamin (langsung teks, tanpa bar)
-  let vitaminHTML = "";
-  if (food.vitamin) {
-    vitaminHTML = `
-      <div class="mt-4">
-        <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
-        <p class="text-sm text-gray-600">${food.vitamin}</p>
-      </div>
-    `;
-  }
 
   return `
     <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition p-6 flex flex-col">
