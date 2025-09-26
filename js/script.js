@@ -398,13 +398,9 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
   }
 
   // --- card makanan ---
- function createCard(food) {
-  const nat = (food.natrium ?? food.sodium);
-  const safeFood = { ...food, sodium: nat };
-
-  // progress bars untuk FIELD_MAP
+  function createCard(food) {
   const bars = FIELD_MAP.map(f => {
-    const val = Number(safeFood[f.key] ?? 0);
+    const val = Number(food[f.key] ?? 0);
     return `
       <div class="mb-4">
         <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
@@ -428,12 +424,37 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       </div>
     `;
   }
+  // vitamin (langsung teks, tanpa bar)
+  let vitaminHTML = "";
+  if (food.vitamin) {
+    vitaminHTML = `
+      <div class="mt-4">
+        <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
+        <p class="text-sm text-gray-600">${food.vitamin}</p>
+      </div>
+    `;
+  }
 
   return `
     <div class="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-lg transition p-6 flex flex-col">
-      <h3 class="text-xl font-bold text-center text-blue-700 mb-4">${food.nama}</h3>
+      
+      <!-- Gambar makanan -->
+      <div class="w-full flex justify-center mb-4">
+        <img src="${food.gambar || '../images/no-image.png'}" 
+             alt="${food.nama}" 
+             class="w-39 h-39 object-contain rounded-md shadow-sm shadow-md transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+      </div>
+
+      <!-- Nama -->
+      <h3 class="text-xl font-bold text-center text-black-700 mb-4">${food.nama}</h3>
+
+      <!-- Bars -->
       ${bars}
+
+      <!-- Vitamin -->
       ${vitaminHTML}
+
+      <!-- Tombol detail -->
       <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
          class="mt-5 block w-full text-center px-4 py-2 rounded-lg bg-blue-700 text-white font-medium hover:bg-blue-800 transition">
         Cek Makanan
@@ -453,7 +474,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     const html = `
       ${createCard(food1)}
       <div class="hidden md:flex items-center justify-center">
-        <span class="text-8xl ibm-plex-serif-light text-gray-700 mt-10">VS</span>
+        <span class="text-8xl font-extrabold text-black-700 mt-10">VS</span>
       </div>
       ${createCard(food2)}
     `;
