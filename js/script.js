@@ -1,9 +1,7 @@
 // js/script.js
-
 // ====================
 // NAVBAR
 // ====================
-// Keren buatan ega no AI asli no fake
 const menu = document.getElementById("menu");
 
 function toggleMenu() {
@@ -344,96 +342,98 @@ function initApp() {
 // ====================
 loadDataMakanan().then(() => {
   initApp();
-  // === COMPARE ===
-  if (window.location.pathname.includes("html/bandingkan.html")) {
 
-    // --- dropdown ---
-    function setupCompareAutocomplete(inputId, suggestId) {
-      const $input = $(inputId);
-      const $suggest = $(suggestId);
+ // === COMPARE ===
+if (window.location.pathname.includes("html/bandingkan.html")) {
 
-      $input.on("input", function () {
-        const kw = $input.val().toLowerCase().trim();
-        $suggest.empty().addClass("hidden");
-        if (!kw) return;
+  // --- dropdown ---
+  function setupCompareAutocomplete(inputId, suggestId) {
+    const $input = $(inputId);
+    const $suggest = $(suggestId);
 
-        const filtered = dataMakanan.filter(m => m.nama.toLowerCase().includes(kw));
-        if (!filtered.length) return;
+    $input.on("input", function () {
+      const kw = $input.val().toLowerCase().trim();
+      $suggest.empty().addClass("hidden");
+      if (!kw) return;
 
-        filtered.forEach(item => {
-          const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
-          $opt.on("click", () => {
-            $input.val(item.nama);
-            $suggest.empty().addClass("hidden");
-          });
-          $suggest.append($opt);
+      const filtered = dataMakanan.filter(m => m.nama.toLowerCase().includes(kw));
+      if (!filtered.length) return;
+
+      filtered.forEach(item => {
+        const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
+        $opt.on("click", () => {
+          $input.val(item.nama);
+          $suggest.empty().addClass("hidden");
         });
-        $suggest.removeClass("hidden");
+        $suggest.append($opt);
       });
+      $suggest.removeClass("hidden");
+    });
 
-      $input.on("blur", () => setTimeout(() => $suggest.addClass("hidden"), 150));
+    $input.on("blur", () => setTimeout(() => $suggest.addClass("hidden"), 150));
+  }
+
+  setupCompareAutocomplete("#food1", "#suggest1");
+  setupCompareAutocomplete("#food2", "#suggest2");
+
+  // --- field map ---
+  const FIELD_MAP = [
+    { key: "kalori", label: "Kalori", max: 500, unit: "kkal" },
+    { key: "lemak", label: "Lemak", max: 100, unit: "g" },
+    { key: "karbohidrat", label: "Karbohidrat", max: 100, unit: "g" },
+    { key: "protein", label: "Protein", max: 50, unit: "g" },
+  ];
+
+  function saveCompareToStorage(names) {
+    localStorage.setItem("compareFoods", JSON.stringify(names));
+  }
+
+  function loadCompareFromStorage() {
+    try {
+      const raw = localStorage.getItem("compareFoods");
+      if (!raw) return [];
+      return JSON.parse(raw);
+    } catch {
+      return [];
     }
+  }
 
-    setupCompareAutocomplete("#food1", "#suggest1");
-    setupCompareAutocomplete("#food2", "#suggest2");
-
-    // --- field map ---
-    const FIELD_MAP = [
-      { key: "kalori", label: "Kalori", max: 500, unit: "kkal" },
-      { key: "lemak", label: "Lemak", max: 100, unit: "g" },
-      { key: "karbohidrat", label: "Karbohidrat", max: 100, unit: "g" },
-      { key: "protein", label: "Protein", max: 50, unit: "g" },
-    ];
-
-    function saveCompareToStorage(names) {
-      localStorage.setItem("compareFoods", JSON.stringify(names));
-    }
-
-    function loadCompareFromStorage() {
-      try {
-        const raw = localStorage.getItem("compareFoods");
-        if (!raw) return [];
-        return JSON.parse(raw);
-      } catch {
-        return [];
-      }
-    }
-
-    // --- card makanan ---
-    function createCard(food) {
-      const bars = FIELD_MAP.map(f => {
-        const val = Number(food[f.key] ?? 0);
-        return `
+  // --- card makanan ---
+  function createCard(food) {
+    const bars = FIELD_MAP.map(f => {
+      const val = Number(food[f.key] ?? 0);
+      return `
       <div class="mb-3">
         <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
         <div class="w-full h-6 bg-gray-200 rounded-lg overflow-hidden">
-          <div class="h-full w-[70%] bg-gradient-to-r from-blue-600 to-blue-400 text-xs text-white flex items-center justify-center"
+          <div class="h-full w-0 bg-gradient-to-r from-blue-600 to-blue-400 text-xs text-white flex items-center justify-center
+                      transition-all duration-[1500ms] ease-in-out"
                data-value="${val}" data-max="${f.max}">
             ${val ? `${val} ${f.unit}` : "-"}
           </div>
         </div>
       </div>`;
-      }).join("");
+    }).join("");
 
-      // vitamin (langsung teks, tanpa bar)
-      let vitaminHTML = "";
-      if (food.vitamin) {
-        vitaminHTML = `
+    // vitamin 
+    let vitaminHTML = "";
+    if (food.vitamin) {
+      vitaminHTML = `
       <div class="mt-4">
         <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
         <p class="text-sm text-gray-600">${food.vitamin}</p>
       </div>
     `;
-      }
+    }
 
-      return `
-    <div class="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all p-6 flex flex-col">
+    return `
+    <div class="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 shadow-md p-6 flex flex-col">
       
       <!-- Gambar makanan -->
       <div class="w-full flex justify-center mb-4">
         <img src="${food.gambar || '../images/no-image.png'}" 
              alt="${food.nama}" 
-             class="w-40 h-40 object-cover rounded-lg shadow-sm transition-transform duration-300 hover:scale-105">
+             class="w-40 h-40 object-cover rounded-lg shadow-sm transition-transform duration-300 hover:scale-105 hover:shadow-lg">
       </div>
 
       <!-- Nama -->
@@ -451,73 +451,72 @@ loadDataMakanan().then(() => {
         Cek Makanan
       </a>
     </div>`;
+  }
+
+  function renderCompare(nama1, nama2) {
+    const food1 = dataMakanan.find(m => m.nama.toLowerCase() === nama1.toLowerCase());
+    const food2 = dataMakanan.find(m => m.nama.toLowerCase() === nama2.toLowerCase());
+
+    if (!food1 || !food2) {
+      alert("Makanan tidak ditemukan dalam database JSON.");
+      return;
     }
 
-    function renderCompare(nama1, nama2) {
-      const food1 = dataMakanan.find(m => m.nama.toLowerCase() === nama1.toLowerCase());
-      const food2 = dataMakanan.find(m => m.nama.toLowerCase() === nama2.toLowerCase());
-
-      if (!food1 || !food2) {
-        alert("Makanan tidak ditemukan dalam database JSON.");
-        return;
-      }
-
-      const html = `
+    const html = `
       ${createCard(food1)}
       <div class="hidden md:flex items-center justify-center">
         <span class="text-8xl font-extrabold text-black-700 mt-10">VS</span>
       </div>
       ${createCard(food2)}
     `;
-      $("#compareContent").html(html);
+    $("#compareContent").html(html);
 
-      $("#compareInputSection").addClass("hidden");
-      $("#compareOutputSection").removeClass("hidden");
+    $("#compareInputSection").addClass("hidden");
+    $("#compareOutputSection").removeClass("hidden");
 
-      // animasi progresssssss
-      $("#compareContent").find("[data-value]").each(function () {
-        const $bar = $(this);
-        const value = parseFloat($bar.data("value")) || 0;
-        const max = parseFloat($bar.data("max")) || 100;
-        const pct = Math.min(100, Math.max(0, (value / max) * 100));
-        setTimeout(() => $bar.css("width", pct + "%"), 800);
-      });
+    // animasi bar
+    $("#compareContent").find("[data-value]").each(function () {
+      const $bar = $(this);
+      const value = parseFloat($bar.data("value")) || 0;
+      const max = parseFloat($bar.data("max")) || 100;
+      const pct = Math.min(100, Math.max(0, (value / max) * 100));
+      setTimeout(() => $bar.css("width", pct + "%"), 100);
+    });
+  }
+
+  // --- tombol bandingkan ---
+  $("#compareBtn").on("click", function () {
+    const nama1 = $("#food1").val().trim();
+    const nama2 = $("#food2").val().trim();
+
+    if (!nama1 || !nama2) {
+      alert("Makanan yang dibandingkan minimal 2.");
+      return;
     }
 
-    // --- tombol bandingkan ---
-    $("#compareBtn").on("click", function () {
-      const nama1 = $("#food1").val().trim();
-      const nama2 = $("#food2").val().trim();
+    saveCompareToStorage([nama1, nama2]);
+    renderCompare(nama1, nama2);
+  });
 
-      if (!nama1 || !nama2) {
-        alert("Makanan yang dibandingkan minimal 2.");
-        return;
-      }
+  // --- tombol kembali ---
+  $("#backToInput").on("click", function () {
+    localStorage.removeItem("lastCompare");
+    $("#compareOutputSection").addClass("hidden");
+    $("#compareInputSection").removeClass("hidden");
+  });
 
-      saveCompareToStorage([nama1, nama2]);
-      renderCompare(nama1, nama2);
-    });
+  const saved = loadCompareFromStorage();
+  if (saved.length === 2) {
+    $("#food1").val(saved[0]);
+    $("#food2").val(saved[1]);
+    renderCompare(saved[0], saved[1]);
+  }
 
-    // --- tombol kembali ---
-    $("#backToInput").on("click", function () {
-      // hapus localStorage
-      localStorage.removeItem("lastCompare");
-
-      // sembunyikan hasil, tampilkan input
-      $("#compareOutputSection").addClass("hidden");
-      $("#compareInputSection").removeClass("hidden");
-    });
-    const saved = loadCompareFromStorage();
-    if (saved.length === 2) {
-      $("#food1").val(saved[0]);
-      $("#food2").val(saved[1]);
-      renderCompare(saved[0], saved[1]);
-    }
-
-    // --- grid rekomendasi ---
-    const $grid = $("#foodGrid");
-    if ($grid.length && Array.isArray(dataMakanan)) {
-      const items = dataMakanan.slice(0, 8).map(m => `
+  // --- grid rekomendasi (random) ---
+  const $grid = $("#foodGrid");
+  if ($grid.length && Array.isArray(dataMakanan)) {
+    const shuffled = [...dataMakanan].sort(() => 0.5 - Math.random()); // random shuffle
+    const items = shuffled.slice(0, 8).map(m => `
       <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-4 flex flex-col">
         <img src="${m.gambar}" alt="${m.nama}" class="w-full h-32 object-contain mb-3">
         <h4 class="font-semibold text-gray-800 line-clamp-2 h-12">${m.nama}</h4>
@@ -528,7 +527,8 @@ loadDataMakanan().then(() => {
         </a>
       </div>
     `).join("");
-      $grid.html(items);
-    }
+    $grid.html(items);
   }
+}
+
 });
