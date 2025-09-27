@@ -85,10 +85,10 @@
 
   <!-- KONTEN -->
   <main class="">
-    <img src="images/banner.png" class="object-cover w-full border-b h-64" alt="banner eatscape">
+    <img src="images/banner.png" class="object-cover w-full h-64 border-b object-bottom" alt="banner eatscape">
     <!-- Hero Section -->
     <header class="bg-light lg:py-5 grid grid-cols-1 gap-2 mb-10 lg:mt-10 mt-6 px-3 lg:px-10">
-      <div class="mx-auto max-w-7xl grid lg:grid-cols-2">
+      <div class="mx-auto max-w-3xl lg:max-w-7xl grid lg:grid-cols-2">
         <h1 class="ibm-plex-serif-light text-5xl mb-3 flex-wrap">Mesin <span class="flex">Pencari <svg
               xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
               <path
@@ -97,7 +97,7 @@
               viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">
               <path
                 d="M160-120q-33 0-56.5-23.5T80-200v-120h800v120q0 33-23.5 56.5T800-120H160Zm0-120v40h640v-40H160Zm320-180q-36 0-57 20t-77 20q-56 0-76-20t-56-20q-36 0-57 20t-77 20v-80q36 0 57-20t77-20q56 0 76 20t56 20q36 0 57-20t77-20q56 0 77 20t57 20q36 0 56-20t76-20q56 0 79 20t55 20v80q-56 0-75-20t-55-20q-36 0-58 20t-78 20q-56 0-77-20t-57-20ZM80-560v-40q0-115 108.5-177.5T480-840q183 0 291.5 62.5T880-600v40H80Zm400-200q-124 0-207.5 31T166-640h628q-23-58-106.5-89T480-760Zm0 520Zm0-400Z" />
-            </svg></span> <i>Canggih</i></h1>
+            </svg></span> <i>Canggih</i>*</h1>
         <section class="container my-5">
           <p class="rubik-r">Eatscape hadir untuk bantu kamu lebih sadar dengan apa yang kamu makan. Cukup ketik nama
             makanan yang ingin dicari, dan dalam sekejap kamu bisa tahu detail kandungan gizi, kalori, serta manfaatnya
@@ -109,12 +109,12 @@
     </header>
 
     <!-- Ketahui apa yang ingin dimakan -->
-    <div class="border-t">
-      <div class="mx-auto max-w-7xl lg:px-10 p-5 grid lg:grid-cols-2 my-10 content-center">
-        <div class="w-full grid place-items-center">
+    <div class="border-t lg:px-10 p-5">
+      <div class="mx-auto max-w-3xl lg:max-w-7xl grid lg:grid-cols-2 my-10">
+        <div class="grid place-items-center">
           <img class="w-100" src="images/hero.gif" alt="gambar bagian hero">
         </div>
-        <div class="lg:w-100 w-full">
+        <div class="">
           <h1 class="ibm-plex-serif-regular text-4xl mb-5">Ketahui apa yang ingin dimakan</h1>
           <p class="rubik-r">Setiap pilihan makanan punya cerita dan dampak bagi tubuhmu. Dengan Eatscape, kamu bisa
             membuat keputusan yang lebih bijak sebelum makan - entah itu untuk menjaga pola makan, menyeimbangkan
@@ -125,31 +125,32 @@
     </div>
 
     <!-- Perbandingkan Makanan -->
-    <div class="border-t">
-      <div class="mx-auto max-w-7xl lg:px-10 p-5 grid lg:grid-cols-2 my-10 gap-10">
-        <div>
-          <h1 class="ibm-plex-serif-regular  gap-2 text-xl items-end mb-10">Bandingkan <span
-              class="ibm-plex-serif-light text-5xl">Makanan</span class="h-20" alt=""> <br> dengan <span
-              class="ibm-plex-serif-light text-5xl">makanan lain</span></h1>
-          <div class="">
+    <div class="border-t lg:px-10 p-5">
+      <div class="mx-auto max-w-3xl lg:max-w-7xl grid lg:grid-cols-2 my-10">
+        <div class="mr-5">
+          <h1 class="ibm-plex-serif-light gap-2 text-5xl items-end mb-10">Bandingkan Makanan dengan <span
+              class="ibm-plex-serif-light flex text-5xl"><i>makanan lain</i> <div class="ml-2 w-8 h-8 bg-black [mask-image:url('/images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></span></h1>
+          <div>
             <!-- sumber gambar ada pada file credits-img-json -->
-            <img src="images/section.gif" alt="gambar perbandingan makanan">
+            <img class="mb-10 lg:mb-0" src="images/section.gif" alt="gambar perbandingan makanan">
           </div>
         </div>
-        <div>
+        <div class="flex flex-col justify-between">
           <p class="rubik-r mb-10">Dengan fitur perbandingan Eatscape, kamu bisa melihat kandungan gizi dari dua makanan
             sekaligus. Temukan mana yang lebih sehat, lebih ringan kalori, atau lebih sesuai dengan kebutuhanmu sebelum
-            memilih makanan.</p>
-          <button onclick="window.location.href='html/bandingkan.html'"
-            class="bg-[#1D44A1] shadow-[4px_4px_0px_rgba(29,68,161,1)] text-white py-2 px-4 cursor-pointer hover:underline">Bandingkan
-            sekarang ></button>
+            memilih makanan.
+          </p>
+          <a class="rubik-r text-[#1D44A1] hover:font-bold flex border-b border-[#1D44A1]" href="html/bandingkan.html">Bandingkan Makanan <div class="w-6 h-6 bg-black ml-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
+          <!-- <button class="ml-1 bg-black">
+            <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-4 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Bandingkan</span>
+          </button> -->
         </div>
       </div>
     </div>
 
     <!-- Seperti wiki untuk makanan -->
-    <div class="border-t border-b lg:h-96 h-130">
-      <div class="mx-auto max-w-7xl grid lg:px-10 p-5 grid lg:grid-cols-2 mt-10">
+    <div class="border-t border-b lg:h-96 h-148 lg:px-10 p-5">
+      <div class="mx-auto max-w-3xl lg:max-w-7xl grid lg:grid-cols-2 mt-10">
         <div class="mb-10 lg:mb-0">
           <h1 class="ibm-plex-serif-regular text-4xl mb-5">Seperti <i>wiki</i> untuk makanan.</h1>
           <p class="rubik-r">Temukan berbagai informasi tentang makanan dari seluruh dunia yang dikumpulkan secara
@@ -158,35 +159,34 @@
         </div>
         <div class="w-full grid place-items-center">
           <!-- sumber gambar : upload.wikimedia.org -->
-          <img class="h-80 lg:h-auto w-auto object-top object-contain"
-            src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1920px-Wikipedia-logo-v2.svg.png"
+          <img class="h-96 lg:h-auto w-auto object-top object-contain"
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/526px-Wikipedia-logo-v2.svg.png"
             alt="gambar globe wikipedia">
         </div>
       </div>
     </div>
 
     <!-- Layanan API -->
-    <div>
-      <div class="mt-40 lg:mt-0 mx-auto max-w-7xl grid lg:px-10 p-5 grid lg:grid-cols-2 my-10 gap-10">
+    <div class="lg:px-10 p-5">
+      <div class="mt-40 lg:mt-0 mx-auto max-w-3xl lg:max-w-7xl grid grid lg:grid-cols-2 my-10 gap-10">
         <div>
           <!-- sumber gambar : upload.wikimedia.org -->
-          <img class="w-144 h-42 object-cover mb-10"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Wikimedia_Foundation_Servers-8055_35.jpg/2560px-Wikimedia_Foundation_Servers-8055_35.jpg"
-            alt="gambar layanan api">
+          <img class="w-full lg:w-144 h-46 object-cover mb-10"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Wikimedia_Foundation_Servers-8055_35.jpg/960px-Wikimedia_Foundation_Servers-8055_35.jpg"
+            alt="Server Wikimedia">
           <h1 class="ibm-plex-serif-regular text-4xl mb-5">Gunakan layanan API kami</h1>
           <p class="rubik-r mb-10">Bangun aplikasi kuliner Anda dengan data yang lengkap dan terstruktur. API kami
             menyediakan akses cepat ke ribuan informasi makanan, mulai dari bahan, nutrisi, hingga rekomendasi resep.
             Integrasikan dengan mudah ke dalam proyek Anda dan kembangkan ide kuliner tanpa batas.</p>
-          <button class="bg-[#1D44A1] shadow-[4px_4px_0px_rgba(29,68,161,1)] text-white py-2 px-4">Gunakan sekarang
-            ></button>
+            <a class="rubik-r text-[#1D44A1] hover:font-bold flex border-b border-[#1D44A1]" href="#">Gunakan Layanan API kami <div class="w-6 h-6 bg-black ml-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
         </div>
       </div>
     </div>
   </main>
 
   <!-- FOOTER -->
-  <footer class="my-20">
-    <div class="bg-[url(/images/footer.png)] h-50 bg-contain bg-repeat-x w-full">
+  <footer class="my-20 lg:my-10">
+    <div class="bg-[url(/images/footer.png)] my-10 lg:my-30 h-50 bg-contain bg-repeat-x w-full">
     </div>
     <div class="grid place-items-center mx-auto w-fit gap-5">
       <div class="flex gap-5 items-center">
@@ -204,5 +204,4 @@
     </div>
   </footer>
 </body>
-
 </html>
