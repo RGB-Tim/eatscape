@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eatscape - Sebuah Mesin Pencari Makanan</title>
 
-  <!-- Font & Icon -->
+  <!-- Font, Icon, Stylesheets -->
   <link rel="icon" type="image/x-icon" href="/images/icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100..900&display=swap"
-    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css" />
 
   <!-- Scripts -->
@@ -84,38 +83,71 @@
     class="border-b max-h-[calc(100vh-25em)] lg:max-h-[calc(100vh-6em)] lg:border-x overflow-auto absolute bg-white z-2 mt-3 grid w-full lg:w-fit left-0 top-13 lg:top-15 lg:left-18">
   </div>
 
-  <!-- WHO ARE WE -->
-  <section class="py-16">
-    <div class="mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 px-5 items-center">
-      <!-- Foto Tim -->
-      <div class="grid grid-cols-3 gap-0">
-        <!-- Foto 1 -->
-        <div class="relative group">
-          <img src="../images/SaladinProfil.png" alt="Saladin"
-            class="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0" />
-          <img src="../images/SaladinProfil_change.png" alt="Saladin Hover"
-            class="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+  <!-- CONTENT -->
+  <main class="">
+
+    <!-- BANNER -->
+    <div class="grid grid-cols-3 h-64 border-b">
+
+      <!-- Card 1 -->
+      <div class="relative group overflow-hidden" tabindex="0">
+        <div class="absolute inset-0 transition-opacity duration-500">
+          <img src="../images/saladin.png" alt="person1"
+              class="-translate-y md:-translate-y-32 lg:-translate-y-64 w-full object-cover object-top select-none"/>
         </div>
-        <!-- Foto 2 -->
-        <div class="relative group">
-          <img src="../images/EgaProfil.png" alt="Ega"
-            class="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0" />
-          <img src="../images/EgaProfil_change.png" alt="Ega Hover"
-            class="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        </div>
-        <!-- Foto 3 -->
-        <div class="relative group">
-          <img src="../images/AlfaProfil.png" alt="Alfa"
-            class="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0" />
-          <img src="../images/AlfaProfi_change.png" alt="Alfa Hover"
-            class="w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+        <!-- Hover state (fades in on hover/focus) -->
+        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
+          <img src="../images/saladin-red.png" alt="person1 hover"
+              class="-translate-y md:-translate-y-32 lg:-translate-y-64 w-full object-cover object-top select-none" />
+          <p class="absolute top-4 left-4 text-white ibm-mono">SALADIN</p>
+          <p class="absolute bottom-4 left-4 text-white ibm-mono">#FF0000</p>
         </div>
       </div>
 
-      <!-- Deskripsi -->
+      <!-- Card 2 -->
+      <div class="relative group overflow-hidden" tabindex="0">
+        <div class="absolute inset-0 transition-opacity duration-500">
+          <img src="../images/ega.png" alt="person2"
+              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+        </div>
+
+        <!-- Hover state (fades in on hover/focus) -->
+        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
+          <img src="../images/ega-green.png" alt="person2 hover"
+              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+          <p class="absolute top-4 left-4 text-white ibm-mono">EGA</p>
+          <p class="absolute bottom-4 left-4 text-white ibm-mono">#00FF00</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="relative group overflow-hidden" tabindex="0">
+        <div class="absolute inset-0 transition-opacity duration-500">
+          <img src="../images/alfa.png" alt="person3"
+              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+        </div>
+
+        <!-- Hover state (fades in on hover/focus) -->
+        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
+          <img src="../images/alfa-blue.png" alt="person3 hover"
+              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+          <p class="absolute top-4 left-4 text-white ibm-mono">ALFA</p>
+          <p class="absolute bottom-4 left-4 text-white ibm-mono">#0000FF</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-3xl lg:max-w-7xl mt-5 mb-15 grid lg:grid-cols-2 px-5 lg:px-10 items-center">
+      <!-- DESCRIPTION -->
       <div>
-        <h1 class="ibm-plex-serif-regular text-4xl mb-5">Who are we?</h1>
-        <p class="mb-5">
+        <p class="rubik-r text-sm text-gray-500 flex gap-2 items-center">
+          <span class="w-6 h-6 bg-gray-500 [mask-image:url('/images/touch.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+          </span>
+          Sentuh/Hover salah satu foto anggota
+        </p>
+        <h1 class="ibm-plex-serif-light text-5xl lg:text-7xl my-5">Who are <i>we</i>?</h1>
+        <p class="rubik-r mb-5">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
           dolores amet natus quisquam dignissimos, placeat, aliquid illum,
           voluptate exercitationem expedita animi at autem facilis maxime aut
@@ -129,104 +161,99 @@
         </p>
       </div>
     </div>
-  </section>
 
-  <!-- INFORMASI GIZI -->
-  <main class="border-t">
-    <div class="mx-auto max-w-7xl lg:p-0 p-5 my-10">
-      <h2 class="ibm-plex-serif-regular text-4xl mb-8 text-center">
-        Tentang Gizi
-      </h2>
-      <div class="w-full">
-        <!-- Accordion Items -->
-        <div class="border-b">
-          <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
-            Karbohidrat
-            <span class="transform transition-transform duration-300">&#9662;</span>
-          </button>
-          <div class="content hidden pb-4 text-gray-700">
-            Karbohidrat adalah sumber energi utama dan paling efisien bagi
-            tubuh, karena lebih mudah diubah menjadi glukosa oleh tubuh
-            daripada protein atau lemak.
+    <!-- INFORMASI GIZI -->
+    <div class="border-t">
+      <div class="mx-auto max-w-3xl lg:max-w-7xl px-5 lg:px-10 lg:p-0 p-5 my-10">
+        <h2 class="ibm-plex-serif-regular text-4xl mb-8">
+          Tentang Gizi
+        </h2>
+        <div class="w-full rubik-r">
+
+          <!-- Accordion Items -->
+          <div class="border-b">
+            <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
+              Karbohidrat
+              <span class="transform transition-transform duration-300">&#9662;</span>
+            </button>
+            <div class="content hidden pb-4 text-gray-700">
+              Karbohidrat adalah sumber energi utama dan paling efisien bagi
+              tubuh, karena lebih mudah diubah menjadi glukosa oleh tubuh
+              daripada protein atau lemak.
+            </div>
+          </div>
+          <div class="border-b">
+            <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
+              Protein
+              <span class="transform transition-transform duration-300">&#9662;</span>
+            </button>
+            <div class="content hidden pb-4 text-gray-700">
+              Protein sangat penting untuk pertumbuhan, perbaikan sel, dan
+              pembentukan enzim serta hormon.
+            </div>
+          </div>
+          <div class="border-b">
+            <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
+              Lemak
+              <span class="transform transition-transform duration-300">&#9662;</span>
+            </button>
+            <div class="content hidden pb-4 text-gray-700">
+              Lemak berperan penting sebagai energi cadangan dan membantu
+              penyerapan vitamin larut lemak (A, D, E, K).
+            </div>
+          </div>
+          <div class="border-b">
+            <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
+              Vitamin
+              <span class="transform transition-transform duration-300">&#9662;</span>
+            </button>
+            <div class="content hidden pb-4 text-gray-700">
+              Vitamin adalah zat organik penting dalam jumlah kecil untuk
+              berbagai fungsi tubuh.
+            </div>
+          </div>
+          <div class="border-b">
+            <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
+              Mineral
+              <span class="transform transition-transform duration-300">&#9662;</span>
+            </button>
+            <div class="content hidden pb-4 text-gray-700">
+              Mineral penting seperti zat besi, kalsium, dan kalium dibutuhkan
+              untuk menjaga tubuh tetap sehat.
+            </div>
+          </div>
+          <div class="border-b">
+            <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
+              Air
+              <span class="transform transition-transform duration-300">&#9662;</span>
+            </button>
+            <div class="content hidden pb-4 text-gray-700">
+              Air membantu mengatur suhu tubuh, membawa nutrisi, dan membuang
+              limbah.
+            </div>
           </div>
         </div>
-        <div class="border-b">
-          <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
-            Protein
-            <span class="transform transition-transform duration-300">&#9662;</span>
-          </button>
-          <div class="content hidden pb-4 text-gray-700">
-            Protein sangat penting untuk pertumbuhan, perbaikan sel, dan
-            pembentukan enzim serta hormon.
-          </div>
-        </div>
-        <div class="border-b">
-          <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
-            Lemak
-            <span class="transform transition-transform duration-300">&#9662;</span>
-          </button>
-          <div class="content hidden pb-4 text-gray-700">
-            Lemak berperan penting sebagai energi cadangan dan membantu
-            penyerapan vitamin larut lemak (A, D, E, K).
-          </div>
-        </div>
-        <div class="border-b">
-          <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
-            Vitamin
-            <span class="transform transition-transform duration-300">&#9662;</span>
-          </button>
-          <div class="content hidden pb-4 text-gray-700">
-            Vitamin adalah zat organik penting dalam jumlah kecil untuk
-            berbagai fungsi tubuh.
-          </div>
-        </div>
-        <div class="border-b">
-          <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
-            Mineral
-            <span class="transform transition-transform duration-300">&#9662;</span>
-          </button>
-          <div class="content hidden pb-4 text-gray-700">
-            Mineral penting seperti zat besi, kalsium, dan kalium dibutuhkan
-            untuk menjaga tubuh tetap sehat.
-          </div>
-        </div>
-        <div class="border-b">
-          <button class="accordion flex justify-between items-center w-full py-4 text-left font-medium">
-            Air
-            <span class="transform transition-transform duration-300">&#9662;</span>
-          </button>
-          <div class="content hidden pb-4 text-gray-700">
-            Air membantu mengatur suhu tubuh, membawa nutrisi, dan membuang
-            limbah.
-          </div>
+      </div>
+    </div>
+
+    <!-- AKG -->
+    <div class="border-t py-20">
+      <div class="mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 items-center px-5">
+
+        <!-- Teks -->
+        <div>
+          <img class="h-32" src="../images/trending_up.svg" alt="gambar trending up">
+          <h2 class="text-4xl ibm-plex-serif-regular mb-4">Angka Kecukupan Gizi (AKG)</h2>
+          <p class="mb-4 rubik-r">
+            Dengan menghitung Angka Kecukupan Gizi (AKG) Anda dapat memberi target kalori harian guna mencapai target
+            berat badan tujuan Anda. <br><br>
+            Perhitungan AKG berdasarkan faktor-faktor unik termasuk umur, berat badan, tinggi badan, jenis kelamin dan
+            tingkat aktivitas.
+          </p>
         </div>
       </div>
     </div>
   </main>
-
-  <!-- AKG Section -->
-  <section class="border-t py-20">
-    <div class="mx-auto max-w-7xl grid lg:grid-cols-2 gap-10 items-center px-5">
-      <!-- Grafik Panah -->
-      <div class="flex justify-center">
-        <!-- sumber gambar ada pada file credits-img-json -->
-        <img class="h-80" src="../images/trending_up.svg" alt="gambar trending up">
-      </div>
-
-      <!-- Teks -->
-      <div>
-        <h2 class="text-4xl font-bold mb-4">Angka Kecukupan Gizi (AKG)</h2>
-        <p class="mb-4">
-          Dengan menghitung Angka Kecukupan Gizi (AKG) Anda dapat memberi target kalori harian guna mencapai target
-          berat badan tujuan Anda.
-        </p>
-        <p>
-          Perhitungan AKG berdasarkan faktor-faktor unik termasuk umur, berat badan, tinggi badan, jenis kelamin dan
-          tingkat aktivitas.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer class="my-20">
@@ -247,6 +274,6 @@
       </div>
     </div>
   </footer>
-</body>
 
+</body>
 </html>
