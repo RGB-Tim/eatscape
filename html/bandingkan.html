@@ -4,12 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="../images/icon.png" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <script src="../js/script.js" defer></script>
+  <title>Eatscape - Sebuah Mesin Pencari Makanan</title>
+  
+  <!-- Fon, Gaya, Ikon -->
+  <link rel="icon" type="image/x-icon" href="/images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- ini bagian Scripts ygy -->
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <title>Bandingkan</title>
+  <script src="../js/script.js" defer></script>
 </head>
 
 <body class="bg-gray-50">
@@ -74,61 +82,56 @@
     class="border-b max-h-[calc(100vh-25em)] lg:max-h-[calc(100vh-6em)] lg:border-x overflow-auto absolute bg-white z-2 mt-3 grid w-full lg:w-fit left-0 top-13 lg:top-15 lg:left-18">
   </div>
 
-  <section id="compareInputSection" class="mt-24 container mx-auto p-6">
-    <h1 class="text-2xl md:text-3xl font-extrabold text-center text-gray-800 mb-8">Bandingkan Makanan</h1>
-    <!-- sumber gambar ada pada file credits-img-json -->
-    <div class="grid gap-6">
-      <!-- Input 1 -->
-      <div
-        class="relative w-full md:w-4/5 mx-auto bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-        <label for="food1" class="block mb-2 font-semibold text-gray-700">Makanan Pertama</label>
-        <input id="food1" type="text" placeholder="Masukkan nama makanan..."
-          class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-[#1D44A1] focus:outline-none">
-        <div id="suggest1"
-          class="absolute top-full left-0 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-md z-10 max-h-56 overflow-y-auto hidden">
-        </div>
-      </div>
+  <main>
+    <div id="compareInputSection" class="mx-auto p-6 mb-20">
+      <h1 class="ibm-plex-serif-light text-5xl md:text-5xl text-center my-10">Bandingkan <i>Makanan</i></h1>
+
       <!-- sumber gambar ada pada file credits-img-json -->
-      <!-- Input 2 -->
-      <div
-        class="relative w-full md:w-4/5 mx-auto bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
-        <label for="food2" class="block mb-2 font-semibold text-gray-700">Makanan Kedua</label>
-        <input id="food2" type="text" placeholder="Masukkan nama makanan..."
-          class="w-full p-3 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-[#1D44A1] focus:outline-none">
-        <div id="suggest2"
-          class="absolute top-full left-0 mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-md z-10 max-h-56 overflow-y-auto hidden">
+      <div class="grid grid-cols-1 place-items-center lg:flex items-center justify-between gap-6">
+        <!-- INPUT 1 -->
+        <div class="relative flex items-center w-full mx-auto bg-white border p-2 lg:max-w-xl">
+          <div class="w-6 h-6 bg-black mx-2 [mask-image:url('/images/search.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>
+          <input id="food1" type="text" placeholder="Masukan nama makanan pertama..."
+            class="rubik-r w-full p-3 focus:outline-none">
+          <div id="suggest1" class="rubik-r absolute top-full left-0 mt-1 w-full bg-white border z-10 max-h-56 overflow-y-auto hidden">
+          </div>
+        </div>
+
+        <!-- BUTTON COMPARE -->
+        <button id="compareBtn" class="-translate-y-1 rubik-r ml-1 mt-3 bg-black">
+          <span class="flex -translate-x-1 -translate-y-1 bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 rotate-90 lg:rotate-0 transition duration-300 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>BANDINGKAN<div class="w-6 h-6 bg-white ml-2 rotate-270 transition duration-300 lg:rotate-180 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></span>
+        </button>
+
+        <!-- sumber gambar ada pada file credits-img-json -->
+        <!-- INPUT 2 -->
+        <div class="relative flex items-center w-full mx-auto bg-white border p-2 lg:max-w-xl">
+          <div class="w-6 h-6 bg-black mx-2 [mask-image:url('/images/search.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>
+          <input id="food2" type="text" placeholder="Masukkan nama makanan kedua..."
+            class="rubik-r w-full p-3 focus:outline-none">
+          <div id="suggest2" class="rubik-r absolute top-full left-0 mt-1 w-full bg-white border z-10 max-h-56 overflow-y-auto hidden">
+          </div>
         </div>
       </div>
-
-
-      <div class="text-center">
-        <button id="compareBtn"
-          class="inline-flex items-center justify-center px-6 py-3 bg-[#1D44A1] text-white font-semibold rounded-xl shadow-md transition transform hover:scale-105 hover:bg-blue-700">
-          Bandingkan
+    </div>
+    
+    <div id="compareOutputSection" class="hidden container mx-auto p-6">
+      <div id="compareContent" class="grid grid-cols-1 place-items-center lg:flex items-center justify-between gap-6"></div>
+      <div class="flex items-center justify-between my-6">
+        <button id="backToInput" class="-translate-y-1 rubik-r ml-1 mt-3 bg-black">
+          <span class="flex -translate-x-1 -translate-y-1 bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 rotate-180 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>KEMBALI</span>
         </button>
       </div>
     </div>
-  </section>
 
-  <section id="compareOutputSection" class="hidden container mx-auto p-6">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-2xl font-bold">Hasil Perbandingan</h2>
-      <button id="backToInput"
-        class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg font-medium shadow hover:bg-blue-700 hover:scale-105 transition hover:underline">
-        ← RESET
-      </button>
+    <!-- GRID MAKANAN -->
+    <div class="border-t">
+      <div class="container mx-auto px-3 mb-20">
+        <h3 class="ibm-plex-serif-regular text-3xl mt-10 mb-15 text-center">Eksplor Makanan Lain!</h3>
+        <div id="foodGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        </div>
+      </div>
     </div>
-
-
-    <div id="compareContent" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start"></div>
-  </section>
-
-  <section class="container mx-auto p-6">
-    <h3 class="text-xl font-semibold mb-4">Eksplor Makanan</h3>
-    <div id="foodGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    </div>
-  </section>
-
+  </main>
 
   <!-- FOOTER -->
   <footer class="my-20">
@@ -150,5 +153,4 @@
     </div>
   </footer>
 </body>
-
 </html>

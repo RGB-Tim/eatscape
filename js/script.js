@@ -285,6 +285,24 @@ function initApp() {
         document.querySelector("main").innerHTML =
           '<p class="text-center text-red-500">Makanan tidak ditemukan.</p>';
       }
+
+      const $grid = $("#foodGrid");
+      if ($grid.length && Array.isArray(dataMakanan)) {
+          const shuffled = [...dataMakanan].sort(() => 0.5 - Math.random()); // random shuffle
+          const items = shuffled.slice(0, 8).map(m => `
+            <div class=" transition lg:p-4 flex flex-col justify-between">
+              <img src="${m.gambar}" alt="${m.nama}" class="w-full h-32 object-contain mb-3">
+              <div>
+                <h4 class="rubik-r font-semibold text-gray-800 line-clamp-2">${m.nama}</h4>
+                <p class="rubik-r text-sm text-gray-500 line-clamp-2">${m.deskripsi || ""}</p>
+              </div>
+              <button onclick="document.location='/html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
+                <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Cek Makanan</span>
+              </button>
+            </div>
+          `).join("");
+          $grid.html(items);
+      }
     }
 
     // === ACCORDION GIZI ===
@@ -342,26 +360,6 @@ function initApp() {
 // ====================
 loadDataMakanan().then(() => {
   initApp();
-
-if (window.location.pathname.includes("html/informasi.html")) {
-  const $grid = $("#foodGrid");
-  if ($grid.length && Array.isArray(dataMakanan)) {
-    const shuffled = [...dataMakanan].sort(() => 0.5 - Math.random()); // random shuffle
-    const items = shuffled.slice(0, 8).map(m => `
-      <div class=" transition lg:p-4 flex flex-col justify-between">
-        <img src="${m.gambar}" alt="${m.nama}" class="w-full h-32 object-contain mb-3">
-        <div>
-          <h4 class="rubik-r font-semibold text-gray-800 line-clamp-2">${m.nama}</h4>
-          <p class="rubik-r text-sm text-gray-500 line-clamp-2">${m.deskripsi || ""}</p>
-        </div>
-        <button onclick="document.location='/html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
-          <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Cek Makanan</span>
-        </button>
-      </div>
-    `).join("");
-    $grid.html(items);
-}
-}
 
 // === COMPARE ===
 if (window.location.pathname.includes("html/bandingkan.html")) {
@@ -423,10 +421,10 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     const bars = FIELD_MAP.map(f => {
       const val = Number(food[f.key] ?? 0);
       return `
-      <div class="mb-3">
-        <div class="text-sm font-medium text-gray-700 mb-1">${f.label}</div>
-        <div class="w-full h-6 bg-gray-200 rounded-lg overflow-hidden">
-          <div class="h-full w-0 bg-gradient-to-r from-blue-600 to-blue-400 text-xs text-white flex items-center justify-center
+      <div class="mb-5">
+        <div class="ml-3 rubik-r mb-1">${f.label}</div>
+        <div class="w-full h-10 striped-background bg-gray-200 overflow-hidden">
+          <div class="rubik-r text-xl h-full w-0 bg-[#1D44A1] text-white flex items-center justify-center
                       transition-all duration-[1500ms] ease-in-out"
                data-value="${val}" data-max="${f.max}">
             ${val ? `${val} ${f.unit}` : "-"}
@@ -439,7 +437,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     let vitaminHTML = "";
     if (food.vitamin) {
       vitaminHTML = `
-      <div class="mt-4">
+      <div class="rubik-r ml-3 mt-4">
         <div class="text-sm font-medium text-gray-700 mb-1">Vitamin</div>
         <p class="text-sm text-gray-600">${food.vitamin}</p>
       </div>
@@ -447,29 +445,33 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     }
 
     return `
-    <div class="bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 shadow-md p-6 flex flex-col">
+    <div class="bg-gradient-to-br from-white to-gray-50 border w-full lg:max-w-xl flex flex-col">
       
       <!-- Gambar makanan -->
-      <div class="w-full flex justify-center mb-4">
+      <div class="border-b w-full flex justify-center">
         <img src="${food.gambar || '../images/no-image.png'}" 
-             alt="${food.nama}" 
-             class="w-40 h-40 object-cover rounded-lg shadow-sm transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            alt="${food.nama}" 
+            class="h-40 w-full object-cover">
       </div>
 
       <!-- Nama -->
-      <h3 class="text-lg font-bold text-gray-800 text-center mb-4">${food.nama}</h3>
+      <div class="lg:sticky lg:top-0 border-b bg-white">
+        <h3 class="text-xl rubik-r mx-3 my-4">${food.nama}</h3>
+      </div>
 
-      <!-- Bars -->
-      ${bars}
+      <div class="mt-5">
+        <!-- Bars -->
+        ${bars}
 
-      <!-- Vitamin -->
-      ${vitaminHTML}
+        <!-- Vitamin -->
+        ${vitaminHTML}
 
-      <!-- Tombol detail -->
-      <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
-         class="mt-5 block w-full text-center px-4 py-2 rounded-lg bg-blue-500 text-white font-medium hover:bg-blue-600 transition hover:underline">
-        Cek Makanan
-      </a>
+        <!-- Tombol detail -->
+        <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
+          class="mt-5 rubik-r block w-full text-center px-4 py-2 bg-[#1D44A1] text-white hover:underline">
+          Cek Makanan
+        </a>
+      </div>
     </div>`;
   }
 
@@ -485,7 +487,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     const html = `
       ${createCard(food1)}
       <div class="hidden md:flex items-center justify-center">
-        <span class="text-8xl font-extrabold text-black-700 mt-10">VS</span>
+        <span class="sticky top-10 text-8xl rubik-r text-black-700 mt-10">VS</span>
       </div>
       ${createCard(food2)}
     `;
@@ -537,14 +539,15 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
   if ($grid.length && Array.isArray(dataMakanan)) {
     const shuffled = [...dataMakanan].sort(() => 0.5 - Math.random()); // random shuffle
     const items = shuffled.slice(0, 8).map(m => `
-      <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition p-4 flex flex-col">
+      <div class=" transition lg:p-4 flex flex-col justify-between">
         <img src="${m.gambar}" alt="${m.nama}" class="w-full h-32 object-contain mb-3">
-        <h4 class="font-semibold text-gray-800 line-clamp-2 h-12">${m.nama}</h4>
-        <p class="text-xs text-gray-500 line-clamp-2 h-8">${m.deskripsi || ""}</p>
-        <a href="/html/informasi.html?nama=${encodeURIComponent(m.nama)}"
-           class="mt-auto inline-flex justify-center items-center px-3 py-2 rounded-lg bg-blue-700 text-white text-sm font-medium hover:bg-blue-800 transition">
-          Cek Makanan
-        </a>
+        <div>
+          <h4 class="rubik-r font-semibold text-gray-800 line-clamp-2">${m.nama}</h4>
+          <p class="rubik-r text-sm text-gray-500 line-clamp-2">${m.deskripsi || ""}</p>
+        </div>
+        <button onclick="document.location='/html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
+          <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Cek Makanan</span>
+        </button>
       </div>
     `).join("");
     $grid.html(items);
