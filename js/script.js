@@ -237,7 +237,7 @@ function initApp() {
         const persenAKG = ((makanan.kalori / 2000) * 100).toFixed(1);
         document.getElementById(
           "infoAKG"
-        ).textContent = `${persenAKG}% dari AKG* (berdasarkan 2000 kkal per hari)`;
+        ).textContent = `${persenAKG}`;
 
         // Update progress bar
         document.getElementById("progressAKG").style.width = `${persenAKG}%`;
@@ -343,7 +343,27 @@ function initApp() {
 loadDataMakanan().then(() => {
   initApp();
 
- // === COMPARE ===
+if (window.location.pathname.includes("html/informasi.html")) {
+  const $grid = $("#foodGrid");
+  if ($grid.length && Array.isArray(dataMakanan)) {
+    const shuffled = [...dataMakanan].sort(() => 0.5 - Math.random()); // random shuffle
+    const items = shuffled.slice(0, 8).map(m => `
+      <div class=" transition lg:p-4 flex flex-col justify-between">
+        <img src="${m.gambar}" alt="${m.nama}" class="w-full h-32 object-contain mb-3">
+        <div>
+          <h4 class="rubik-r font-semibold text-gray-800 line-clamp-2">${m.nama}</h4>
+          <p class="rubik-r text-sm text-gray-500 line-clamp-2">${m.deskripsi || ""}</p>
+        </div>
+        <button onclick="document.location='/html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
+          <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Cek Makanan</span>
+        </button>
+      </div>
+    `).join("");
+    $grid.html(items);
+}
+}
+
+// === COMPARE ===
 if (window.location.pathname.includes("html/bandingkan.html")) {
 
   // --- dropdown ---
