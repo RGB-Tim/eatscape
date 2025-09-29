@@ -10,9 +10,14 @@
   <link rel="icon" type="image/x-icon" href="/images/icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css" />
 
   <!-- Scripts -->
@@ -23,7 +28,8 @@
 
 <body>
   <!-- NAVBAR, MOBILE: h-16 | DESKTOP: h-18 -->
-  <nav class="mx-auto fixed z-4 top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
+  <nav
+    class="mx-auto fixed z-4 top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
     <div class="flex items-center flex-1 items-stretch">
       <div class="flex lg:w-18 lg:h-18 w-16 h-16 justify-center items-center">
         <a href="../index.html"><img src="../images/logo.svg" alt="Eatscape" class="h-8 w-auto" /></a>
@@ -44,6 +50,7 @@
     <div class="flex">
       <a href="../index.html" aria-current="page"
         class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">BERANDA</a>
+      <!-- navigasi Aplikasi / Layanan API masih belum tersedia, mungkin akan tersedia untuk kedepannya -->
       <a href="#" aria-current="page" class="rubik-r hidden px-6 lg:flex border-l text-sm items-center">APLIKASI</a>
       <a href="bandingkan.html" aria-current="page"
         class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">PERBANDINGAN</a>
@@ -66,16 +73,28 @@
   <div id="menu" class="grid w-full divide-y-1 border-b hidden">
     <a href="../index.html" aria-current="page"
       class="rubik-r justify-between gap-5 flex h-15 w-full pl-4 pl-8 overflow-hidden text-sm items-center">BERANDA
-      <div class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/home.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
+      <div
+        class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/home.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+      </div>
+    </a>
+    <!-- navigasi Aplikasi / Layanan API masih belum tersedia, mungkin akan tersedia untuk kedepannya -->
     <a href="#" aria-current="page"
       class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">LAYANAN API
-      <div class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/api.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>
-    <a href="bandingkan.html" aria-current="page"
-      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 pr-2 text-sm overflow-hidden items-center">PERBANDINGAN
-      <div class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
-    <a href="tentang.html" aria-current="page"
-      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">TENTANG
-      <div class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/about.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
+      <div
+        class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/api.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+      </div>
+      <a href="bandingkan.html" aria-current="page"
+        class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 pr-2 text-sm overflow-hidden items-center">PERBANDINGAN
+        <div
+          class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+        </div>
+      </a>
+      <a href="tentang.html" aria-current="page"
+        class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">TENTANG
+        <div
+          class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/about.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+        </div>
+      </a>
   </div>
 
   <!-- SEARCH RESULTS -->
@@ -93,13 +112,14 @@
       <div class="relative group overflow-hidden" tabindex="0">
         <div class="absolute inset-0 transition-opacity duration-500">
           <img src="../images/saladin.png" alt="person1"
-              class="-translate-y md:-translate-y-32 lg:-translate-y-64 w-full object-cover object-top select-none"/>
+            class="-translate-y md:-translate-y-32 lg:-translate-y-64 w-full object-cover object-top select-none" />
         </div>
 
         <!-- Hover state (fades in on hover/focus) -->
-        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
+        <div
+          class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
           <img src="../images/saladin-red.png" alt="person1 hover"
-              class="-translate-y md:-translate-y-32 lg:-translate-y-64 w-full object-cover object-top select-none" />
+            class="-translate-y md:-translate-y-32 lg:-translate-y-64 w-full object-cover object-top select-none" />
           <p class="absolute top-4 left-4 text-white ibm-mono">SALADIN</p>
           <p class="absolute bottom-4 left-4 text-white ibm-mono">#FF0000</p>
         </div>
@@ -109,13 +129,14 @@
       <div class="relative group overflow-hidden" tabindex="0">
         <div class="absolute inset-0 transition-opacity duration-500">
           <img src="../images/ega.png" alt="person2"
-              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+            class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
         </div>
 
         <!-- Hover state (fades in on hover/focus) -->
-        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
+        <div
+          class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
           <img src="../images/ega-green.png" alt="person2 hover"
-              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+            class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
           <p class="absolute top-4 left-4 text-white ibm-mono">EGA</p>
           <p class="absolute bottom-4 left-4 text-white ibm-mono">#00FF00</p>
         </div>
@@ -125,13 +146,14 @@
       <div class="relative group overflow-hidden" tabindex="0">
         <div class="absolute inset-0 transition-opacity duration-500">
           <img src="../images/alfa.png" alt="person3"
-              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+            class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
         </div>
 
         <!-- Hover state (fades in on hover/focus) -->
-        <div class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
+        <div
+          class="absolute overflow-hidden inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
           <img src="../images/alfa-blue.png" alt="person3 hover"
-              class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
+            class="-translate-y md:-translate-y-32 lg:-translate-y-70 w-full object-cover object-top select-none" />
           <p class="absolute top-4 left-4 text-white ibm-mono">ALFA</p>
           <p class="absolute bottom-4 left-4 text-white ibm-mono">#0000FF</p>
         </div>
@@ -142,7 +164,8 @@
       <!-- DESCRIPTION -->
       <div>
         <p class="rubik-r text-sm text-gray-500 flex gap-2 items-center">
-          <span class="w-6 h-6 bg-gray-500 [mask-image:url('/images/touch.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+          <span
+            class="w-6 h-6 bg-gray-500 [mask-image:url('/images/touch.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
           </span>
           Sentuh/Hover salah satu foto anggota
         </p>
@@ -276,4 +299,5 @@
   </footer>
 
 </body>
+
 </html>

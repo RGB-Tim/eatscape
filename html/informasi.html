@@ -5,13 +5,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eatscape - Sebuah Mesin Pencari Makanan</title>
-  
+
   <!-- Fon, Gaya, Ikon -->
   <link rel="icon" type="image/x-icon" href="/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 
   <!-- ini bagian Scripts ygy -->
@@ -22,7 +25,8 @@
 
 <body>
   <!-- NAVBAR, MOBILE: h-16 | DESKTOP: h-18 -->
-  <nav class="mx-auto fixed z-4 top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
+  <nav
+    class="mx-auto fixed z-4 top-0 right-0 left-0 bg-white border-b relative flex items-center items-stretch justify-between">
     <div class="flex items-center flex-1 items-stretch">
       <div class="flex lg:w-18 lg:h-18 w-16 h-16 justify-center items-center">
         <a href="../index.html"><img src="../images/logo.svg" alt="Eatscape" class="h-8 w-auto" /></a>
@@ -43,6 +47,7 @@
     <div class="flex">
       <a href="../index.html" aria-current="page"
         class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">BERANDA</a>
+      <!-- navigasi Aplikasi / Layanan API masih belum tersedia, mungkin akan tersedia untuk kedepannya -->
       <a href="#" aria-current="page" class="rubik-r hidden px-6 lg:flex border-l text-sm items-center">APLIKASI</a>
       <a href="bandingkan.html" aria-current="page"
         class="hover:underline rubik-r hidden px-6 lg:flex border-l text-sm items-center">PERBANDINGAN</a>
@@ -65,16 +70,28 @@
   <div id="menu" class="grid w-full divide-y-1 border-b hidden">
     <a href="../index.html" aria-current="page"
       class="rubik-r justify-between gap-5 flex h-15 w-full pl-4 pl-8 overflow-hidden text-sm items-center">BERANDA
-      <div class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/home.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
+      <div
+        class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/home.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+      </div>
+    </a>
+    <!-- navigasi Aplikasi / Layanan API masih belum tersedia, mungkin akan tersedia untuk kedepannya -->
     <a href="#" aria-current="page"
       class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">LAYANAN API
-      <div class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/api.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>
-    <a href="bandingkan.html" aria-current="page"
-      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 pr-2 text-sm overflow-hidden items-center">PERBANDINGAN
-      <div class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
-    <a href="tentang.html" aria-current="page"
-      class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">TENTANG
-      <div class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/about.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
+      <div
+        class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/api.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+      </div>
+      <a href="bandingkan.html" aria-current="page"
+        class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 pr-2 text-sm overflow-hidden items-center">PERBANDINGAN
+        <div
+          class="bg-[#1d44a1] rotate-10 h-24 w-24 [mask-image:url('../images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+        </div>
+      </a>
+      <a href="tentang.html" aria-current="page"
+        class="rubik-r justify-between gap-5 flex h-15 w-full py-4 pl-8 text-sm overflow-hidden items-center">TENTANG
+        <div
+          class="bg-[#becfe7] rotate-10 h-24 w-24 [mask-image:url('../images/about.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+        </div>
+      </a>
   </div>
 
   <!-- SEARCH RESULTS -->
@@ -87,7 +104,8 @@
 
     <!-- sumber gambar ada pada file credits-img-json -->
     <div class="border-b">
-      <h1 id="judulMakanan" class="ml-3 lg:ml-6 ibm-plex-serif-light text-4xl md:text-5xl font-bold text-gray-900 mb-4"></h1>
+      <h1 id="judulMakanan" class="ml-3 lg:ml-6 ibm-plex-serif-light text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      </h1>
       <p id="deskripsiMakanan" class="mx-3 lg:mx-6 rubik-r mb-10"></p>
     </div>
 
@@ -105,12 +123,13 @@
         <!-- AKG -->
         <div class="mt-10">
           <h3 class="rubik-r font-semibold mb-2">Asupan Kalori Harian</h3>
-        <div class="flex">
-          <p id="infoAKG" class="rubik-r font-bold text-4xl"></p><p class="text-sm lg:text-base">% dari AKG* (berdasarkan 2000 kkal per hari)</p>
-        </div>
+          <div class="flex">
+            <p id="infoAKG" class="rubik-r font-bold text-4xl"></p>
+            <p class="text-sm lg:text-base">% dari AKG* (berdasarkan 2000 kkal per hari)</p>
+          </div>
 
-        <!-- PROGRESS-BAR AKG -->
-        <div class="w-full striped-background h-10 mt-2">
+          <!-- PROGRESS-BAR AKG -->
+          <div class="w-full striped-background h-10 mt-2">
             <div id="progressAKG" class="bg-[#1D44A1] h-10"></div>
           </div>
         </div>
@@ -163,10 +182,11 @@
         </div>
 
         <!-- SUMBER -->
-        <a id="sumberLink" href="#" target="_blank" class="rubik-r lg:mx-0 my-4 mx-2 underline mt-4 text-sm hover:underline">Lihat sumber gizi</a>
+        <a id="sumberLink" href="#" target="_blank"
+          class="rubik-r lg:mx-0 my-4 mx-2 underline mt-4 text-sm hover:underline">Lihat sumber gizi</a>
       </div>
     </div>
-  
+
     <!-- GRID MAKANAN -->
     <div class="border-t">
       <div class="container mx-auto px-3 mb-20">
@@ -181,7 +201,11 @@
       <div class="mx-auto max-w-3xl lg:max-w-7xl grid lg:grid-cols-2 my-10">
         <div class="mr-5">
           <h1 class="ibm-plex-serif-light gap-2 text-5xl items-end mb-10">Bandingkan Makanan dengan <span
-              class="ibm-plex-serif-light flex text-5xl"><i>makanan lain</i><div class="ml-2 w-8 h-8 bg-black [mask-image:url('/images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></span></h1>
+              class="ibm-plex-serif-light flex text-5xl"><i>makanan lain</i>
+              <div
+                class="ml-2 w-8 h-8 bg-black [mask-image:url('/images/compare.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+              </div>
+            </span></h1>
           <div>
             <!-- sumber gambar ada pada file credits-img-json -->
             <img class="mb-10 lg:mb-0" src="../images/section.gif" alt="gambar perbandingan makanan">
@@ -192,7 +216,10 @@
             sekaligus. Temukan mana yang lebih sehat, lebih ringan kalori, atau lebih sesuai dengan kebutuhanmu sebelum
             memilih makanan.
           </p>
-          <a class="rubik-r text-[#1D44A1] hover:font-bold flex border-b border-[#1D44A1]" href="../html/bandingkan.html">Bandingkan Makanan <div class="w-6 h-6 bg-black ml-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div></a>
+          <a class="rubik-r text-[#1D44A1] hover:font-bold flex border-b border-[#1D44A1]"
+            href="../html/bandingkan.html">Bandingkan Makanan <div
+              class="w-6 h-6 bg-black ml-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]">
+            </div></a>
         </div>
       </div>
     </div>
@@ -218,4 +245,5 @@
     </div>
   </footer>
 </body>
+
 </html>
