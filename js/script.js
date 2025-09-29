@@ -75,7 +75,7 @@ function initApp() {
         if (hasil.length > 0) {
           hasil.forEach((makanan) => {
             const card = `
-              <a href="/html/informasi.html?nama=${encodeURIComponent(
+              <a href="./html/informasi.html?nama=${encodeURIComponent(
               makanan.nama
             )}" class="rubik-r m-2 flex gap-2">
                 <img class="h-14 w-14 object-cover" src="${makanan.gambar
