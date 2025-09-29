@@ -35,7 +35,7 @@ window.addEventListener('load', function () {
 
 // Load data makanan dari JSON
 function loadDataMakanan() {
-  return fetch("/js/data-makanan.json")
+  return fetch("./js/data-makanan.json")
     .then((response) => {
       if (!response.ok) throw new Error("Gagal memuat data");
       return response.json();
