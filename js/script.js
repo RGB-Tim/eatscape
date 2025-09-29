@@ -35,7 +35,7 @@ window.addEventListener('load', function () {
 
 // Load data makanan dari JSON
 function loadDataMakanan() {
-  return fetch("./js/data-makanan.json")
+  return fetch("../js/data-makanan.json")
     .then((response) => {
       if (!response.ok) throw new Error("Gagal memuat data");
       return response.json();
@@ -75,7 +75,7 @@ function initApp() {
         if (hasil.length > 0) {
           hasil.forEach((makanan) => {
             const card = `
-              <a href="/eatscape/html/informasi.html?nama=${encodeURIComponent(
+              <a href="../html/informasi.html?nama=${encodeURIComponent(
               makanan.nama
             )}" class="rubik-r m-2 flex gap-2">
                 <img class="h-14 w-14 object-cover" src="${makanan.gambar
