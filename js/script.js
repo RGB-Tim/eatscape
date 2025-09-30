@@ -36,7 +36,7 @@ if (window.location.href.match("/html/")){
   var suffixPath = ".."
 } else {
   // DALAM ROOT
-  var suffixPath = ""
+  var suffixPath = "."
 }
 
 // Load data makanan dari JSON
