@@ -384,13 +384,16 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       if (!filtered.length) return;
 
       filtered.forEach(item => {
-        const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
-        $opt.on("click", () => {
-          $input.val(item.nama);
-          $suggest.empty().addClass("hidden");
-        });
-        $suggest.append($opt);
-      });
+      const $opt = $(`<div class="px-3 py-2 text-sm cursor-pointer hover:bg-blue-50">${item.nama}</div>`);
+      $opt.on("mousedown", (e) => {
+      e.preventDefault();
+      $input.val(item.nama);
+      $suggest.empty().addClass("hidden");
+  });
+  
+  $suggest.append($opt);
+});
+
       $suggest.removeClass("hidden");
     });
 
@@ -527,18 +530,22 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
   });
 
   // --- tombol kembali ---
-  $("#backToInput").on("click", function () {
-    localStorage.removeItem("lastCompare");
-    $("#compareOutputSection").addClass("hidden");
-    $("#compareInputSection").removeClass("hidden");
-  });
+$("#backToInput").on("click", function () {
+  // hapus data compare dari localStorage
+  localStorage.removeItem("compareFoods"); 
+  
+  $("#compareOutputSection").addClass("hidden");
+  $("#compareInputSection").removeClass("hidden");
+});
 
-  const saved = loadCompareFromStorage();
-  if (saved.length === 2) {
-    $("#food1").val(saved[0]);
-    $("#food2").val(saved[1]);
-    renderCompare(saved[0], saved[1]);
-  }
+// --- restore dari storage ---
+const saved = loadCompareFromStorage();
+if (saved.length === 2) {
+  $("#food1").val(saved[0]);
+  $("#food2").val(saved[1]);
+  renderCompare(saved[0], saved[1]);
+}
+
 
   // --- grid rekomendasi (random) ---
   const $grid = $("#foodGrid");
