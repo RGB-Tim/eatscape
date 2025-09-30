@@ -1,4 +1,5 @@
 // js/script.js
+
 // ====================
 // NAVBAR
 // ====================
@@ -8,7 +9,7 @@ function toggleMenu() {
   menu.classList.toggle("hidden");
 }
 
-// Force tampil di layar besar (≥64rem)
+// PAKSA TAMPIL DI LAYAR BESAR (≥64rem)
 function checkScreen() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
   if (window.innerWidth >= 64 * rem) {
@@ -16,7 +17,7 @@ function checkScreen() {
   }
 }
 
-// Run once on load and whenever screen resizes
+// JALANKAN SAAT LAYAR BERUBAH UKURAN
 checkScreen();
 window.addEventListener("resize", checkScreen);
 
@@ -31,6 +32,9 @@ window.addEventListener('load', function () {
   document.body.classList.add('show');
 })
 
+// MENGATASI KESALAHAN PATH
+// KARENA PADA SAAT WEBSITE DI DEPLOY DI GITHUB PAGES
+// WEBSITE BERADA DI RUTE /eatscape
 if (window.location.href.match("/html/")){
   // TIDAK DALAM ROOT
   var suffixPath = ".."
@@ -39,7 +43,7 @@ if (window.location.href.match("/html/")){
   var suffixPath = "."
 }
 
-// Load data makanan dari JSON
+// LOAD MAKANAN DARI data-makanan.json
 function loadDataMakanan() {
   return fetch(`${suffixPath}/js/data-makanan.json`)
     .then((response) => {
@@ -64,7 +68,7 @@ function initApp() {
     const $searchInput = $("#searchInput");
     const $searchResults = $("#searchResults");
 
-    // === SEARCH ===
+    // SEARCH
     if ($searchInput.length) {
       $searchInput.on("input", function () {
         const query = $(this).val().toLowerCase();
@@ -102,7 +106,7 @@ function initApp() {
       });
     }
 
-    // === AUTOCOMPLETE untuk bandingkan.html ===
+    // AUTOCOMPLETE UNTUK bandingkan.html
     function setupAutocomplete(inputId) {
       const $input = $(inputId);
       const $list = $('<div class="autocomplete-list"></div>').insertAfter(
@@ -129,7 +133,6 @@ function initApp() {
         });
       });
 
-      // Hide list on blur
       $input.on("blur", () => setTimeout(() => $list.empty(), 150));
     }
 
@@ -191,7 +194,7 @@ function initApp() {
       $("#hasilPerbandingan").html(tabel);
     }
 
-    // === INFORMASI.HTML ===
+    // informasi.html
     if (window.location.pathname.includes("informasi.html")) {
       const urlParams = new URLSearchParams(window.location.search);
       const namaMakanan = urlParams.get("nama");
@@ -201,19 +204,18 @@ function initApp() {
       );
 
       if (makanan) {
-        // Judul utama
+        // JUDUL UTAMA
         document.getElementById("judulMakanan").textContent = makanan.nama;
 
-        // Bagian kanan (produk)
+        // BAGIAN KANAN (PRODUK)
         document.getElementById("gambarMakanan").src = makanan.gambar;
         document.getElementById("gambarMakanan").alt = makanan.nama;
-        // document.getElementById("namaMakanan").textContent = makanan.nama;
         document.getElementById("deskripsiMakanan").textContent =
           makanan.deskripsi || "Tidak ada deskripsi.";
         document.getElementById("sajianMakanan").textContent =
           makanan.sajian || "";
 
-        // Box highlight
+        // INFOBOX
         document.getElementById("kaloriBox").textContent =
           makanan.kalori + " kkal";
         document.getElementById("proteinBox").textContent =
@@ -222,10 +224,10 @@ function initApp() {
         document.getElementById("karboBox").textContent =
           makanan.karbohidrat + " g";
 
-        // Link sumber
+        // TAUTAN SUMBER
         document.getElementById("sumberLink").href = makanan.sumber;
 
-        // Tabel gizi (pakai garis per baris)
+        // TABEL GIZI
         document.getElementById("tabelGizi").innerHTML = `
           <tr><td class="p-2 font-medium">Kalori</td><td class="p-2">${makanan.kalori
           } kkal</td></tr>
@@ -239,16 +241,16 @@ function initApp() {
           }</td></tr>
         `;
 
-        // Hitung AKG
+        // HITUNG AKG
         const persenAKG = ((makanan.kalori / 2000) * 100).toFixed(1);
         document.getElementById(
           "infoAKG"
         ).textContent = `${persenAKG}`;
 
-        // Update progress bar
+        // UPDATE PROGRESS BAR AKG
         document.getElementById("progressAKG").style.width = `${persenAKG}%`;
 
-        // Pie chart (3 makro utama)
+        // PIE CHART (3 MAKRO UTAMA)
         const total =
           (makanan.protein || 0) +
           (makanan.lemak || 0) +
@@ -260,7 +262,7 @@ function initApp() {
 
           const pie = document.getElementById("pie-chart");
 
-          // Animasi increment
+          // ANIMASI INCREMENT PIE CHART
           let progress = 0;
           const anim = setInterval(() => {
             if (progress >= 100) {
@@ -311,7 +313,7 @@ function initApp() {
       }
     }
 
-    // === ACCORDION GIZI ===
+    // ACCORDION GIZI
     $(".accordion").click(function () {
       $(".content").not($(this).next()).slideUp();
       $(".accordion span").not($(this).find("span")).removeClass("rotate-180");
@@ -320,7 +322,7 @@ function initApp() {
       $(this).find("span").toggleClass("rotate-180");
     });
 
-    // === KATEGORI ===
+    // KATEGORI
     const kategori = {};
     dataMakanan.forEach((makanan) => {
       if (!kategori[makanan.kategori]) {
@@ -367,10 +369,10 @@ function initApp() {
 loadDataMakanan().then(() => {
   initApp();
 
-// === COMPARE ===
+// COMPARE
 if (window.location.pathname.includes("html/bandingkan.html")) {
 
-  // --- dropdown ---
+  // DROPDOWN AUTOCOMPLETE BANDINGKAN
   function setupCompareAutocomplete(inputId, suggestId) {
     const $input = $(inputId);
     const $suggest = $(suggestId);
@@ -403,7 +405,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
   setupCompareAutocomplete("#food1", "#suggest1");
   setupCompareAutocomplete("#food2", "#suggest2");
 
-  // --- field map ---
+  // FIELD MAP DETAIL BANDINGKAN
   const FIELD_MAP = [
     { key: "kalori", label: "Kalori", max: 500, unit: "kkal" },
     { key: "lemak", label: "Lemak", max: 100, unit: "g" },
@@ -425,7 +427,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     }
   }
 
-  // --- card makanan ---
+  // CARD MAKANAN
   function createCard(food) {
     const bars = FIELD_MAP.map(f => {
       const val = Number(food[f.key] ?? 0);
@@ -442,7 +444,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
       </div>`;
     }).join("");
 
-    // vitamin 
+    // VITAMIN 
     let vitaminHTML = "";
     if (food.vitamin) {
       vitaminHTML = `
@@ -505,7 +507,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     $("#compareInputSection").addClass("hidden");
     $("#compareOutputSection").removeClass("hidden");
 
-    // animasi bar
+    // ANIMASI BAR BANDINGKAN
     $("#compareContent").find("[data-value]").each(function () {
       const $bar = $(this);
       const value = parseFloat($bar.data("value")) || 0;
@@ -515,7 +517,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     });
   }
 
-  // --- tombol bandingkan ---
+  // TOMBOL BANDINGKAN
   $("#compareBtn").on("click", function () {
     const nama1 = $("#food1").val().trim();
     const nama2 = $("#food2").val().trim();
@@ -529,16 +531,16 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
     renderCompare(nama1, nama2);
   });
 
-  // --- tombol kembali ---
-$("#backToInput").on("click", function () {
-  // hapus data compare dari localStorage
-  localStorage.removeItem("compareFoods"); 
-  
-  $("#compareOutputSection").addClass("hidden");
-  $("#compareInputSection").removeClass("hidden");
-});
+  // TOMBOL KEMBALI BANDINGKAN
+  $("#backToInput").on("click", function () {
+    
+    // HAPUS DATA BANDIGKAN DARI LOCALSTORAGE
+    localStorage.removeItem("compareFoods"); 
+    $("#compareOutputSection").addClass("hidden");
+    $("#compareInputSection").removeClass("hidden");
+  });
 
-// --- restore dari storage ---
+// RESTORE DARI LOCAL STORAGE
 const saved = loadCompareFromStorage();
 if (saved.length === 2) {
   $("#food1").val(saved[0]);
@@ -546,8 +548,7 @@ if (saved.length === 2) {
   renderCompare(saved[0], saved[1]);
 }
 
-
-  // --- grid rekomendasi (random) ---
+  // GRID REKOMENDASI ACAK-ACAKAN
   const $grid = $("#foodGrid");
   if ($grid.length && Array.isArray(dataMakanan)) {
     const shuffled = [...dataMakanan].sort(() => 0.5 - Math.random()); // random shuffle
@@ -566,5 +567,4 @@ if (saved.length === 2) {
     $grid.html(items);
   }
 }
-
 });
