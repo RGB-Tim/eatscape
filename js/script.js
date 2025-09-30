@@ -25,17 +25,23 @@ window.addEventListener("resize", checkScreen);
 // ====================
 let dataMakanan = [];
 
-
 const body = document.getElementById('body');
 
 window.addEventListener('load', function () {
   document.body.classList.add('show');
 })
 
+if (window.location.href.match("/html/")){
+  // TIDAK DALAM ROOT
+  var suffixPath = ".."
+} else {
+  // DALAM ROOT
+  var suffixPath = ""
+}
 
 // Load data makanan dari JSON
 function loadDataMakanan() {
-  return fetch("/eatscape/js/data-makanan.json")
+  return fetch(`${suffixPath}/js/data-makanan.json`)
     .then((response) => {
       if (!response.ok) throw new Error("Gagal memuat data");
       return response.json();
@@ -75,7 +81,7 @@ function initApp() {
         if (hasil.length > 0) {
           hasil.forEach((makanan) => {
             const card = `
-              <a href="/eatscape/html/informasi.html?nama=${encodeURIComponent(
+              <a href="${suffixPath}/html/informasi.html?nama=${encodeURIComponent(
               makanan.nama
             )}" class="rubik-r m-2 flex gap-2">
                 <img class="h-14 w-14 object-cover" src="${makanan.gambar
@@ -339,7 +345,7 @@ function initApp() {
               }">
                     <p class="card-text">${makanan.deskripsi || "Klik untuk lihat detail"
               }</p>
-                    <a href="/html/informasi.html?nama=${encodeURIComponent(
+                    <a href="${suffixPath}/html/informasi.html?nama=${encodeURIComponent(
                 makanan.nama
               )}" class="btn btn-success">Lihat Gizi</a>
                   </div>
@@ -467,7 +473,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
         ${vitaminHTML}
 
         <!-- Tombol detail -->
-        <a href="/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
+        <a href="${suffixPath}/html/informasi.html?nama=${encodeURIComponent(food.nama)}"
           class="mt-5 rubik-r block w-full text-center px-4 py-2 bg-[#1D44A1] text-white hover:underline">
           Cek Makanan
         </a>
