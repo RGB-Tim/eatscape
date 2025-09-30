@@ -296,7 +296,7 @@ function initApp() {
                 <h4 class="rubik-r font-semibold text-gray-800 line-clamp-2">${m.nama}</h4>
                 <p class="rubik-r text-sm text-gray-500 line-clamp-2">${m.deskripsi || ""}</p>
               </div>
-              <button onclick="document.location='/html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
+              <button onclick="document.location='../html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
                 <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Cek Makanan</span>
               </button>
             </div>
@@ -545,7 +545,7 @@ if (window.location.pathname.includes("html/bandingkan.html")) {
           <h4 class="rubik-r font-semibold text-gray-800 line-clamp-2">${m.nama}</h4>
           <p class="rubik-r text-sm text-gray-500 line-clamp-2">${m.deskripsi || ""}</p>
         </div>
-        <button onclick="document.location='/html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
+        <button onclick="document.location='../html/informasi.html?nama=${encodeURIComponent(m.nama)}'" class="rubik-r ml-1 mt-3 bg-black">
           <span class="flex -translate-x-1 -translate-y-1 border-black bg-[#1D44A1] text-white p-2 hover:-translate-y-2 hover:-translate-x-2 active:translate-x-0 active:translate-y-0 transition-all"><div class="w-6 h-6 bg-white mr-2 [mask-image:url('/images/next.svg')] [mask-repeat:no-repeat] [mask-position:center] [mask-size:contain]"></div>Cek Makanan</span>
         </button>
       </div>
